@@ -3,264 +3,566 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>採用コンシェルジュ</title>
+  <title>採用コンシェルジュ｜のぞみ整形外科</title>
 
   <style>
-    :root {
-      --main: #2f7d73;
-      --main-light: #edf7f5;
-      --text: #263238;
-      --sub-text: #607078;
-      --border: #dfe7e5;
-      --background: #f7f9f8;
-      --white: #ffffff;
+    :root{
+      --primary:#78cfc7;
+      --primary-dark:#45b5aa;
+      --primary-deep:#328f87;
+      --primary-soft:#e8f7f5;
+      --primary-pale:#dff3f1;
+
+      --text:#666a6c;
+      --text-dark:#45494b;
+      --text-light:#8a8e90;
+
+      --white:#ffffff;
+      --bg:#f7f8f8;
+      --border:#e4e7e7;
+
+      --shadow:0 6px 22px rgba(65,95,92,.10);
+      --radius:18px;
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    body {
-      margin: 0;
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
       font-family:
-        -apple-system, BlinkMacSystemFont,
+        -apple-system,
+        BlinkMacSystemFont,
         "Hiragino Kaku Gothic ProN",
-        "Yu Gothic", "Meiryo", sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.75;
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.8;
+      letter-spacing:.02em;
     }
 
-    button {
-      font: inherit;
+    button,
+    a{
+      font:inherit;
     }
 
-    .app {
-      max-width: 720px;
-      min-height: 100vh;
-      margin: 0 auto;
-      background: var(--white);
+    button{
+      -webkit-tap-highlight-color:transparent;
     }
 
-    /* HEADER */
-    header {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--border);
-      background: var(--white);
+    .app{
+      max-width:780px;
+      min-height:100vh;
+      margin:0 auto;
+      background:var(--white);
+      box-shadow:0 0 40px rgba(0,0,0,.04);
     }
 
-    .brand {
-      font-size: 15px;
-      color: var(--sub-text);
-      margin-bottom: 2px;
+    /* ------------------------
+       HEADER
+    ------------------------ */
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
     }
 
-    .service-name {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--main);
+    .header-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:14px 20px;
     }
 
-    /* MAIN */
-    main {
-      padding: 28px 20px 120px;
+    .brand{
+      min-width:0;
     }
 
-    .screen {
-      display: none;
+    .brand-tagline{
+      margin:0 0 2px;
+      color:var(--primary-deep);
+      font-size:10px;
+      letter-spacing:.18em;
     }
 
-    .screen.active {
-      display: block;
+    .brand-name{
+      margin:0;
+      color:var(--text-dark);
+      font-size:16px;
+      font-weight:700;
     }
 
-    .eyebrow {
-      color: var(--main);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .brand-sub{
+      margin:2px 0 0;
+      color:var(--text-light);
+      font-size:11px;
     }
 
-    h1 {
-      font-size: 25px;
-      line-height: 1.45;
-      margin: 0 0 14px;
+    .header-mark{
+      width:38px;
+      height:38px;
+      border:2px solid var(--primary);
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:var(--primary-deep);
+      font-weight:700;
+      flex-shrink:0;
     }
 
-    h2 {
-      font-size: 19px;
-      margin: 30px 0 10px;
+    /* ------------------------
+       MAIN
+    ------------------------ */
+
+    main{
+      padding-bottom:120px;
     }
 
-    p {
-      margin: 0 0 16px;
+    .screen{
+      display:none;
+      min-height:calc(100vh - 70px);
     }
 
-    .lead {
-      color: var(--sub-text);
-      margin-bottom: 28px;
+    .screen.active{
+      display:block;
     }
 
-    /* CARD */
-    .card-list {
-      display: grid;
-      gap: 12px;
+    .screen-inner{
+      position:relative;
+      padding:46px 22px 60px;
+      overflow:hidden;
     }
 
-    .card {
-      width: 100%;
-      text-align: left;
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--white);
-      cursor: pointer;
-      transition: 0.15s ease;
+    .section-number{
+      position:absolute;
+      top:18px;
+      left:-8px;
+      z-index:0;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:150px;
+      line-height:1;
+      color:var(--primary-pale);
+      font-weight:400;
+      pointer-events:none;
+      user-select:none;
+    }
+
+    .content-layer{
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      margin-bottom:10px;
+      color:var(--primary-deep);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .page-title{
+      margin:0;
+      color:var(--text-dark);
+      font-size:27px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .title-line{
+      width:76px;
+      height:2px;
+      margin:18px 0 20px;
+      background:var(--primary);
+    }
+
+    .lead{
+      margin:0 0 30px;
+      color:var(--text);
+      font-size:15px;
+    }
+
+    .highlight{
+      color:var(--primary-dark);
+      font-weight:700;
+    }
+
+    /* ------------------------
+       OPENING
+    ------------------------ */
+
+    .opening-hero{
+      min-height:calc(100vh - 185px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .opening-panel{
+      position:relative;
+      padding:32px 24px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(232,247,245,.95),
+          rgba(255,255,255,.98)
+        );
+      border-radius:0 34px 34px 0;
+      margin-left:-22px;
+      padding-left:44px;
+    }
+
+    .opening-panel::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:8px;
+      background:var(--primary);
+    }
+
+    .opening-title{
+      margin:0 0 18px;
+      color:var(--text-dark);
+      font-size:30px;
+      line-height:1.55;
+    }
+
+    .opening-text{
+      margin:0 0 28px;
+      color:var(--text);
+      font-size:15px;
+    }
+
+    /* ------------------------
+       BUTTON
+    ------------------------ */
+
+    .primary-button{
+      width:100%;
+      min-height:56px;
+      padding:14px 18px;
+      border:none;
+      border-radius:14px;
+      background:var(--primary-dark);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 5px 14px rgba(69,181,170,.22);
+      transition:.15s ease;
+    }
+
+    .primary-button:active{
+      transform:scale(.985);
+    }
+
+    .back-button{
+      border:0;
+      padding:0;
+      margin:0 0 24px;
+      background:transparent;
+      color:var(--primary-deep);
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* ------------------------
+       CARDS
+    ------------------------ */
+
+    .card-list{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    .card{
+      position:relative;
+      width:100%;
+      min-height:92px;
+      padding:19px 52px 19px 20px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--white);
+      box-shadow:var(--shadow);
+      text-align:left;
+      cursor:pointer;
+      transition:.16s ease;
+    }
+
+    .card::after{
+      content:"›";
+      position:absolute;
+      top:50%;
+      right:20px;
+      transform:translateY(-50%);
+      color:var(--primary-dark);
+      font-size:27px;
+      font-weight:300;
     }
 
     .card:hover,
-    .card:focus {
-      border-color: var(--main);
-      background: var(--main-light);
-      outline: none;
+    .card:focus-visible{
+      border-color:var(--primary);
+      background:var(--primary-soft);
+      outline:none;
     }
 
-    .card-title {
-      display: block;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
+    .card-title{
+      display:block;
+      color:var(--text-dark);
+      font-size:16px;
+      font-weight:700;
+      line-height:1.55;
     }
 
-    .card-description {
-      display: block;
-      margin-top: 5px;
-      font-size: 13px;
-      color: var(--sub-text);
+    .card-description{
+      display:block;
+      margin-top:5px;
+      color:var(--text-light);
+      font-size:12px;
+      line-height:1.6;
     }
 
-    /* THEME */
-    .progress {
-      padding: 12px 14px;
-      margin-bottom: 18px;
-      border-radius: 10px;
-      background: var(--main-light);
-      color: var(--main);
-      font-size: 14px;
-      font-weight: 700;
+    /* ------------------------
+       THEMES
+    ------------------------ */
+
+    .selection-label{
+      display:inline-block;
+      margin-bottom:18px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-deep);
+      font-size:12px;
+      font-weight:700;
     }
 
-    .theme-card {
-      position: relative;
-      padding-right: 70px;
+    .progress-area{
+      margin-bottom:26px;
     }
 
-    .read-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 12px;
-      color: var(--sub-text);
-      display: none;
+    .progress-text{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:8px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--text);
     }
 
-    .theme-card.read .read-badge {
-      display: block;
+    .progress-track{
+      height:5px;
+      overflow:hidden;
+      border-radius:999px;
+      background:#edf1f1;
     }
 
-    /* ANSWER */
-    .answer {
-      font-size: 16px;
+    .progress-bar{
+      width:0%;
+      height:100%;
+      border-radius:999px;
+      background:var(--primary-dark);
+      transition:.25s ease;
     }
 
-    .answer-header {
-      padding-bottom: 20px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--border);
+    .theme-card{
+      padding-right:86px;
     }
 
-    .answer-box {
-      padding: 18px;
-      margin: 24px 0;
-      border-radius: 12px;
-      background: var(--main-light);
+    .read-badge{
+      position:absolute;
+      top:15px;
+      right:42px;
+      display:none;
+      color:var(--primary-deep);
+      font-size:11px;
+      font-weight:700;
     }
 
-    /* BUTTONS */
-    .back-button {
-      display: inline-block;
-      margin-bottom: 22px;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: var(--main);
-      cursor: pointer;
-      font-weight: 700;
+    .theme-card.read{
+      background:#fbfefe;
     }
 
-    .primary-button {
-      width: 100%;
-      padding: 15px;
-      border: 0;
-      border-radius: 12px;
-      background: var(--main);
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
+    .theme-card.read .read-badge{
+      display:block;
     }
 
-    /* CTA */
-    .cta {
-      position: fixed;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: min(720px, 100%);
-      padding: 12px 16px;
-      border-top: 1px solid var(--border);
-      background: rgba(255,255,255,0.96);
+    /* ------------------------
+       ANSWER
+    ------------------------ */
+
+    .answer-header{
+      position:relative;
+      padding:22px 0 24px;
+      margin-bottom:24px;
+      border-bottom:1px solid var(--border);
     }
 
-    .cta-inner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+    .answer-number{
+      position:absolute;
+      top:-36px;
+      right:-4px;
+      color:var(--primary-pale);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:100px;
+      line-height:1;
+      z-index:0;
     }
 
-    .cta a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-      padding: 8px;
-      border-radius: 10px;
-      text-decoration: none;
-      text-align: center;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--main);
-      background: var(--main-light);
+    .answer-header-content{
+      position:relative;
+      z-index:1;
     }
 
-    .cta a:last-child {
-      color: white;
-      background: var(--main);
+    .answer-title{
+      margin:0;
+      color:var(--text-dark);
+      font-size:26px;
+      line-height:1.5;
     }
 
-    @media (min-width: 600px) {
-      main {
-        padding: 40px 48px 130px;
+    .answer-body{
+      font-size:15px;
+    }
+
+    .answer-body h2{
+      position:relative;
+      margin:38px 0 14px;
+      padding-top:12px;
+      color:var(--text-dark);
+      font-size:19px;
+      line-height:1.5;
+    }
+
+    .answer-body h2::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:42px;
+      height:2px;
+      background:var(--primary);
+    }
+
+    .answer-body p{
+      margin:0 0 18px;
+    }
+
+    .answer-box{
+      margin:26px 0;
+      padding:20px;
+      border-radius:16px;
+      background:var(--primary-soft);
+      border-left:5px solid var(--primary);
+      color:var(--text);
+    }
+
+    /* ------------------------
+       CTA
+    ------------------------ */
+
+    .cta{
+      position:fixed;
+      left:50%;
+      bottom:0;
+      transform:translateX(-50%);
+      width:min(780px, 100%);
+      z-index:50;
+      padding:10px 12px max(10px, env(safe-area-inset-bottom));
+      border-top:1px solid var(--border);
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(8px);
+    }
+
+    .cta-inner{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+    }
+
+    .cta a{
+      min-height:50px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:7px 4px;
+      border-radius:12px;
+      text-decoration:none;
+      text-align:center;
+      font-size:13px;
+      font-weight:700;
+      color:var(--primary-deep);
+      background:var(--primary-soft);
+    }
+
+    .cta a:last-child{
+      background:var(--primary-dark);
+      color:#fff;
+    }
+
+    /* ------------------------
+       DESKTOP
+    ------------------------ */
+
+    @media (min-width:640px){
+
+      .header-inner{
+        padding:16px 34px;
       }
 
-      header {
-        padding: 20px 48px;
+      .screen-inner{
+        padding:58px 48px 80px;
       }
 
-      h1 {
-        font-size: 29px;
+      .section-number{
+        font-size:190px;
+        left:12px;
+      }
+
+      .page-title{
+        font-size:31px;
+      }
+
+      .opening-title{
+        font-size:36px;
+      }
+
+      .opening-panel{
+        margin-left:-48px;
+        padding-left:70px;
+      }
+
+      .card-list{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .card{
+        min-height:112px;
+      }
+
+      .answer-body{
+        font-size:16px;
       }
     }
+
   </style>
 </head>
 
@@ -268,157 +570,333 @@
 
 <div class="app">
 
-  <header>
-    <div class="brand">〇〇医療法人</div>
-    <p class="service-name">採用コンシェルジュ</p>
+  <header class="header">
+    <div class="header-inner">
+
+      <div class="brand">
+        <p class="brand-tagline">your hope, our hope.</p>
+        <p class="brand-name">のぞみ整形外科グループ</p>
+        <p class="brand-sub">採用コンシェルジュ</p>
+      </div>
+
+      <div class="header-mark">N</div>
+
+    </div>
   </header>
+
 
   <main>
 
-    <!-- オープニング -->
+    <!-- OPENING -->
     <section id="opening" class="screen active">
-      <div class="eyebrow">WELCOME</div>
 
-      <h1>
-        あなたに合った情報を、<br>
-        気になるところから。
-      </h1>
+      <div class="screen-inner opening-hero">
 
-      <p class="lead">
-        仕事内容や職場の雰囲気、働き方など、
-        求職者の方からよくいただく質問をまとめています。
-        まずはあなたの職種を教えてください。
-      </p>
+        <div class="opening-panel">
 
-      <button class="primary-button" onclick="showScreen('jobs')">
-        はじめる
-      </button>
-    </section>
+          <div class="eyebrow">
+            RECRUIT CONCIERGE
+          </div>
 
+          <h1 class="opening-title">
+            あなたの「知りたい」から、<br>
+            職場を少しずつ知ってください。
+          </h1>
 
-    <!-- 職種 -->
-    <section id="jobs" class="screen">
-      <button class="back-button" onclick="showScreen('opening')">
-        ← 戻る
-      </button>
+          <p class="opening-text">
+            仕事内容、教育環境、働き方、職場の雰囲気。<br>
+            求職者の皆さまからよくいただく質問を、
+            気になるテーマから自由に見ることができます。
+          </p>
 
-      <div class="eyebrow">STEP 1</div>
-      <h1>職種を選んでください</h1>
+          <button
+            class="primary-button"
+            onclick="showScreen('jobs')"
+          >
+            採用コンシェルジュをはじめる
+          </button>
 
-      <p class="lead">
-        現在検討している職種を選択してください。
-      </p>
-
-      <div class="card-list">
-
-        <button class="card" onclick="selectJob('理学療法士')">
-          <span class="card-title">理学療法士</span>
-          <span class="card-description">
-            外来リハビリテーション・運動器リハビリ
-          </span>
-        </button>
-
-        <button class="card" onclick="selectJob('看護師')">
-          <span class="card-title">看護師</span>
-          <span class="card-description">
-            整形外科クリニックでの看護業務
-          </span>
-        </button>
-
-        <button class="card" onclick="selectJob('医療事務')">
-          <span class="card-title">医療事務</span>
-          <span class="card-description">
-            受付・医療事務・患者対応
-          </span>
-        </button>
-
-      </div>
-    </section>
-
-
-    <!-- キャリア -->
-    <section id="careers" class="screen">
-      <button class="back-button" onclick="showScreen('jobs')">
-        ← 職種選択へ戻る
-      </button>
-
-      <div class="eyebrow">STEP 2</div>
-      <h1 id="career-title">キャリアを選んでください</h1>
-
-      <p class="lead">
-        あなたに近いものを選択してください。
-      </p>
-
-      <div class="card-list">
-
-        <button class="card" onclick="selectCareer('新卒')">
-          <span class="card-title">新卒</span>
-          <span class="card-description">
-            学校卒業後、初めて就職する方
-          </span>
-        </button>
-
-        <button class="card" onclick="selectCareer('中途')">
-          <span class="card-title">中途</span>
-          <span class="card-description">
-            実務経験のある方
-          </span>
-        </button>
-
-        <button class="card" onclick="selectCareer('ブランクあり')">
-          <span class="card-title">ブランクあり</span>
-          <span class="card-description">
-            現場復帰を検討している方
-          </span>
-        </button>
-
-      </div>
-    </section>
-
-
-    <!-- テーマ一覧 -->
-    <section id="themes" class="screen">
-
-      <button class="back-button" onclick="showScreen('careers')">
-        ← キャリア選択へ戻る
-      </button>
-
-      <div class="eyebrow">GUIDE</div>
-
-      <h1>何について知りたいですか？</h1>
-
-      <p id="selection-info" class="lead"></p>
-
-      <div id="progress" class="progress">
-        9テーマのうち 0テーマを閲覧
-      </div>
-
-      <div id="theme-list" class="card-list"></div>
-
-    </section>
-
-
-    <!-- 回答 -->
-    <section id="answer" class="screen">
-
-      <button class="back-button" onclick="showScreen('themes')">
-        ← テーマ一覧へ戻る
-      </button>
-
-      <article class="answer">
-
-        <div class="answer-header">
-          <div class="eyebrow">ANSWER</div>
-          <h1 id="answer-title"></h1>
         </div>
 
-        <div id="answer-content"></div>
+      </div>
 
-      </article>
+    </section>
 
-      <button class="primary-button" onclick="showScreen('themes')">
-        他のテーマも見る
-      </button>
+
+    <!-- JOB -->
+    <section id="jobs" class="screen">
+
+      <div class="screen-inner">
+
+        <div class="section-number">01</div>
+
+        <div class="content-layer">
+
+          <button
+            class="back-button"
+            onclick="showScreen('opening')"
+          >
+            ← 最初に戻る
+          </button>
+
+          <div class="eyebrow">STEP 01</div>
+
+          <h1 class="page-title">
+            希望する職種を<br>
+            選んでください
+          </h1>
+
+          <div class="title-line"></div>
+
+          <p class="lead">
+            現在検討している職種を選択してください。
+          </p>
+
+          <div class="card-list">
+
+            <button
+              class="card"
+              onclick="selectJob('理学療法士')"
+            >
+              <span class="card-title">
+                理学療法士
+              </span>
+              <span class="card-description">
+                外来・通所・訪問リハビリテーション
+              </span>
+            </button>
+
+            <button
+              class="card"
+              onclick="selectJob('看護師')"
+            >
+              <span class="card-title">
+                看護師
+              </span>
+              <span class="card-description">
+                整形外科クリニックでの看護業務
+              </span>
+            </button>
+
+            <button
+              class="card"
+              onclick="selectJob('医療事務')"
+            >
+              <span class="card-title">
+                医療事務
+              </span>
+              <span class="card-description">
+                受付・医療事務・患者対応
+              </span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CAREER -->
+    <section id="careers" class="screen">
+
+      <div class="screen-inner">
+
+        <div class="section-number">02</div>
+
+        <div class="content-layer">
+
+          <button
+            class="back-button"
+            onclick="showScreen('jobs')"
+          >
+            ← 職種選択へ戻る
+          </button>
+
+          <div class="eyebrow">STEP 02</div>
+
+          <h1
+            id="career-title"
+            class="page-title"
+          >
+            キャリアを選んでください
+          </h1>
+
+          <div class="title-line"></div>
+
+          <p class="lead">
+            あなたに最も近いものを選択してください。
+          </p>
+
+          <div class="card-list">
+
+            <button
+              class="card"
+              onclick="selectCareer('新卒')"
+            >
+              <span class="card-title">
+                新卒
+              </span>
+              <span class="card-description">
+                学校卒業後、初めて就職する方
+              </span>
+            </button>
+
+            <button
+              class="card"
+              onclick="selectCareer('中途')"
+            >
+              <span class="card-title">
+                中途
+              </span>
+              <span class="card-description">
+                実務経験のある方
+              </span>
+            </button>
+
+            <button
+              class="card"
+              onclick="selectCareer('ブランクあり')"
+            >
+              <span class="card-title">
+                ブランクあり
+              </span>
+              <span class="card-description">
+                現場復帰を検討している方
+              </span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- THEMES -->
+    <section id="themes" class="screen">
+
+      <div class="screen-inner">
+
+        <div class="section-number">03</div>
+
+        <div class="content-layer">
+
+          <button
+            class="back-button"
+            onclick="showScreen('careers')"
+          >
+            ← キャリア選択へ戻る
+          </button>
+
+          <div class="eyebrow">
+            YOUR GUIDE
+          </div>
+
+          <h1 class="page-title">
+            何について<br>
+            知りたいですか？
+          </h1>
+
+          <div class="title-line"></div>
+
+          <div
+            id="selection-info"
+            class="selection-label"
+          ></div>
+
+          <p class="lead">
+            順番はありません。
+            気になるテーマから自由にご覧ください。
+          </p>
+
+          <div class="progress-area">
+
+            <div class="progress-text">
+              <span>閲覧状況</span>
+              <span id="progress-text">
+                0 / 9
+              </span>
+            </div>
+
+            <div class="progress-track">
+              <div
+                id="progress-bar"
+                class="progress-bar"
+              ></div>
+            </div>
+
+          </div>
+
+          <div
+            id="theme-list"
+            class="card-list"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ANSWER -->
+    <section id="answer" class="screen">
+
+      <div class="screen-inner">
+
+        <div class="content-layer">
+
+          <button
+            class="back-button"
+            onclick="showScreen('themes')"
+          >
+            ← テーマ一覧へ戻る
+          </button>
+
+          <div class="answer-header">
+
+            <div
+              id="answer-number"
+              class="answer-number"
+            >
+              01
+            </div>
+
+            <div class="answer-header-content">
+
+              <div class="eyebrow">
+                ANSWER
+              </div>
+
+              <h1
+                id="answer-title"
+                class="answer-title"
+              ></h1>
+
+            </div>
+
+          </div>
+
+          <div
+            id="answer-content"
+            class="answer-body"
+          ></div>
+
+          <button
+            class="primary-button"
+            onclick="showScreen('themes')"
+          >
+            他のテーマも見る
+          </button>
+
+        </div>
+
+      </div>
 
     </section>
 
@@ -427,13 +905,25 @@
 </div>
 
 
-<!-- 常設CTA -->
+<!-- CTA -->
 <div class="cta">
+
   <div class="cta-inner">
-    <a href="#">相談する</a>
-    <a href="#">見学する</a>
-    <a href="#">応募する</a>
+
+    <a href="#">
+      相談する
+    </a>
+
+    <a href="#">
+      見学する
+    </a>
+
+    <a href="#">
+      応募する
+    </a>
+
   </div>
+
 </div>
 
 
@@ -441,170 +931,245 @@
 
   let selectedJob = "";
   let selectedCareer = "";
+
   const readThemes = new Set();
 
+
   const themes = [
+
     {
-      id: 1,
-      title: "仕事内容・働き方",
-      description: "実際の仕事内容や一日の流れについて",
-      content: `
+      id:1,
+      title:"仕事内容・働き方",
+      description:"仕事内容や一日の流れ、働き方について",
+      content:`
         <p>
-          ここには「仕事内容・働き方」についての固定回答が入ります。
+          ここには
+          <span class="highlight">
+            「仕事内容・働き方」
+          </span>
+          についての固定回答が入ります。
         </p>
 
-        <h2>どんな仕事をするの？</h2>
+        <h2>
+          どんな仕事をするの？
+        </h2>
 
         <p>
-          実際の業務内容や、一日の流れなどを分かりやすく紹介します。
-          本番では職種・キャリアごとに内容が変わります。
+          実際の仕事内容や一日の流れを、
+          求職者の方が働く姿を想像できるように紹介します。
         </p>
 
         <div class="answer-box">
-          この部分には、特に知ってほしいポイントや補足情報を掲載できます。
+          本番では選択された職種・キャリアに応じて、
+          この部分の文章が変わります。
         </div>
 
-        <h2>大切にしていること</h2>
+        <h2>
+          私たちが大切にしていること
+        </h2>
 
         <p>
-          単なる業務説明だけではなく、法人として仕事で大切にしている考え方も
-          必要に応じて紹介します。
+          単なる業務内容だけでなく、
+          仕事を通して何を大切にしているのかも
+          分かりやすく紹介します。
         </p>
       `
     },
+
     {
-      id: 2,
-      title: "教育・成長環境",
-      description: "研修・教育・入職後のサポートについて"
+      id:2,
+      title:"教育・成長環境",
+      description:"新人教育・研修・入職後のサポートについて"
     },
+
     {
-      id: 3,
-      title: "給与・待遇・福利厚生",
-      description: "給与や各種制度について"
+      id:3,
+      title:"給与・待遇・福利厚生",
+      description:"給与条件や福利厚生、各種制度について"
     },
+
     {
-      id: 4,
-      title: "職場の雰囲気・人間関係",
-      description: "職場の雰囲気やスタッフについて"
+      id:4,
+      title:"職場の雰囲気・人間関係",
+      description:"スタッフや職場の雰囲気について"
     },
+
     {
-      id: 5,
-      title: "応募・見学について",
-      description: "見学から応募までの流れについて"
+      id:5,
+      title:"応募・見学について",
+      description:"見学から応募・選考までの流れについて"
     },
+
     {
-      id: 6,
-      title: "キャリア・将来性",
-      description: "入職後の成長やキャリアについて"
+      id:6,
+      title:"キャリア・将来性",
+      description:"入職後の成長やキャリアについて"
     },
+
     {
-      id: 7,
-      title: "勤務条件・ワークライフバランス",
-      description: "勤務時間や休日、働き方について"
+      id:7,
+      title:"勤務条件・ワークライフバランス",
+      description:"勤務時間、休日、働き方について"
     },
+
     {
-      id: 8,
-      title: "法人・クリニックについて",
-      description: "法人の特徴や考え方について"
+      id:8,
+      title:"法人・クリニックについて",
+      description:"法人の特徴や大切にしていることについて"
     },
+
     {
-      id: 9,
-      title: "よくある質問",
-      description: "求職者の方からよくいただく質問"
+      id:9,
+      title:"よくある質問",
+      description:"求職者の皆さまからよくいただく質問"
     }
+
   ];
 
 
-  function showScreen(id) {
+  function showScreen(id){
 
-    document.querySelectorAll(".screen").forEach(screen => {
-      screen.classList.remove("active");
-    });
+    document
+      .querySelectorAll(".screen")
+      .forEach(screen => {
+        screen.classList.remove("active");
+      });
 
-    document.getElementById(id).classList.add("active");
+    document
+      .getElementById(id)
+      .classList.add("active");
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+      top:0,
+      behavior:"smooth"
     });
 
-    if (id === "themes") {
+    if(id === "themes"){
       renderThemes();
     }
+
   }
 
 
-  function selectJob(job) {
+  function selectJob(job){
 
     selectedJob = job;
 
-    document.getElementById("career-title").textContent =
-      job + "のキャリアを選んでください";
+    document
+      .getElementById("career-title")
+      .innerHTML =
+      `${job}の<br>キャリアを選んでください`;
 
     showScreen("careers");
+
   }
 
 
-  function selectCareer(career) {
+  function selectCareer(career){
 
     selectedCareer = career;
 
-    document.getElementById("selection-info").textContent =
-      selectedJob + " ／ " + selectedCareer;
+    document
+      .getElementById("selection-info")
+      .textContent =
+      `${selectedJob} ／ ${selectedCareer}`;
 
     showScreen("themes");
+
   }
 
 
-  function renderThemes() {
+  function renderThemes(){
 
-    const list = document.getElementById("theme-list");
+    const list =
+      document.getElementById("theme-list");
 
     list.innerHTML = "";
 
     themes.forEach(theme => {
 
-      const button = document.createElement("button");
+      const button =
+        document.createElement("button");
 
       button.className =
         "card theme-card" +
-        (readThemes.has(theme.id) ? " read" : "");
+        (
+          readThemes.has(theme.id)
+            ? " read"
+            : ""
+        );
 
       button.innerHTML = `
-        <span class="card-title">${theme.title}</span>
-        <span class="card-description">${theme.description}</span>
-        <span class="read-badge">✓ 閲覧済み</span>
+        <span class="card-title">
+          ${theme.title}
+        </span>
+
+        <span class="card-description">
+          ${theme.description}
+        </span>
+
+        <span class="read-badge">
+          ✓ 閲覧済み
+        </span>
       `;
 
-      button.onclick = () => openTheme(theme);
+      button.onclick =
+        () => openTheme(theme);
 
       list.appendChild(button);
+
     });
 
-    document.getElementById("progress").textContent =
-      "9テーマのうち " +
-      readThemes.size +
-      "テーマを閲覧";
+
+    const count =
+      readThemes.size;
+
+    document
+      .getElementById("progress-text")
+      .textContent =
+      `${count} / ${themes.length}`;
+
+    document
+      .getElementById("progress-bar")
+      .style.width =
+      `${count / themes.length * 100}%`;
+
   }
 
 
-  function openTheme(theme) {
+  function openTheme(theme){
 
     readThemes.add(theme.id);
 
-    document.getElementById("answer-title").textContent =
+    document
+      .getElementById("answer-title")
+      .textContent =
       theme.title;
 
-    document.getElementById("answer-content").innerHTML =
+    document
+      .getElementById("answer-number")
+      .textContent =
+      String(theme.id).padStart(2,"0");
+
+    document
+      .getElementById("answer-content")
+      .innerHTML =
       theme.content || `
         <p>
-          ここには「${theme.title}」についての固定回答が表示されます。
+          ここには
+          <span class="highlight">
+            「${theme.title}」
+          </span>
+          についての固定回答が表示されます。
         </p>
 
-        <h2>このテーマについて</h2>
+        <h2>
+          このテーマについて
+        </h2>
 
         <p>
-          本番では、選択された職種とキャリアに合わせた回答を
+          本番では、
+          選択した職種とキャリアに合わせた内容を
           Googleスプレッドシートから取得して表示します。
         </p>
 
@@ -614,6 +1179,7 @@
       `;
 
     showScreen("answer");
+
   }
 
 </script>
