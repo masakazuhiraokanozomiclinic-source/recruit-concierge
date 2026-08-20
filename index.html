@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>採用コンシェルジュ｜のぞみ整形外科</title>
 
-  <!-- Rounded M+ 1c系 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --primary:#78cfc7;
@@ -40,7 +35,14 @@
 
     body{
       margin:0;
-      font-family:"M PLUS Rounded 1c", sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Meiryo",
+        sans-serif;
       color:var(--text);
       background:var(--bg);
       line-height:1.8;
@@ -123,7 +125,7 @@
     /* MAIN */
 
     main{
-      padding-bottom:120px;
+      padding-bottom:150px;
     }
 
     .screen{
@@ -173,12 +175,12 @@
       font-weight:700;
     }
 
-    /* 戻る */
+    /* BACK */
 
     .back-button{
       border:0;
       padding:0;
-      margin:0 0 22px;
+      margin:0 0 24px;
       background:transparent;
       color:var(--primary-deep);
       font-size:14px;
@@ -186,14 +188,14 @@
       cursor:pointer;
     }
 
-    /* 番号＋タイトル */
+    /* NUMBER + HEADING */
 
     .numbered-heading{
       display:grid;
-      grid-template-columns:105px 1fr;
-      gap:8px;
+      grid-template-columns:130px 1fr;
+      gap:28px;
       align-items:center;
-      margin-bottom:14px;
+      margin-bottom:18px;
     }
 
     .big-number{
@@ -203,6 +205,7 @@
       font-weight:400;
       color:var(--primary-pale);
       user-select:none;
+      text-align:left;
     }
 
     .heading-text{
@@ -288,7 +291,7 @@
       position:relative;
       width:100%;
       min-height:92px;
-      padding:19px 52px 19px 20px;
+      padding:17px 52px 17px 18px;
       border:1px solid var(--border);
       border-radius:var(--radius);
       background:var(--white);
@@ -332,6 +335,58 @@
       line-height:1.6;
     }
 
+    /* THEME CARD ICON */
+
+    .theme-card{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:14px;
+      align-items:center;
+      padding-right:86px;
+    }
+
+    .theme-card-content{
+      min-width:0;
+    }
+
+    .theme-icon{
+      width:38px;
+      height:38px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:var(--primary-dark);
+      flex-shrink:0;
+    }
+
+    .theme-icon svg{
+      width:30px;
+      height:30px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .read-badge{
+      position:absolute;
+      top:15px;
+      right:42px;
+      display:none;
+      color:var(--primary-deep);
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .theme-card.read{
+      background:#fbfefe;
+    }
+
+    .theme-card.read .read-badge{
+      display:block;
+    }
+
     /* THEMES */
 
     .selection-label{
@@ -373,28 +428,6 @@
       border-radius:999px;
       background:var(--primary-dark);
       transition:.25s ease;
-    }
-
-    .theme-card{
-      padding-right:86px;
-    }
-
-    .read-badge{
-      position:absolute;
-      top:15px;
-      right:42px;
-      display:none;
-      color:var(--primary-deep);
-      font-size:11px;
-      font-weight:700;
-    }
-
-    .theme-card.read{
-      background:#fbfefe;
-    }
-
-    .theme-card.read .read-badge{
-      display:block;
     }
 
     /* ANSWER */
@@ -465,6 +498,31 @@
       color:var(--text);
     }
 
+    /* FUTURE IMAGE SUPPORT */
+
+    .answer-image{
+      display:none;
+      margin:24px 0;
+    }
+
+    .answer-image.enabled{
+      display:block;
+    }
+
+    .answer-image img{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:16px;
+    }
+
+    .answer-image-caption{
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:12px;
+      line-height:1.6;
+    }
+
     /* CTA */
 
     .cta{
@@ -474,10 +532,18 @@
       transform:translateX(-50%);
       width:min(780px, 100%);
       z-index:50;
-      padding:10px 12px max(10px, env(safe-area-inset-bottom));
+      padding:9px 12px max(10px, env(safe-area-inset-bottom));
       border-top:1px solid var(--border);
       background:rgba(255,255,255,.97);
       backdrop-filter:blur(8px);
+    }
+
+    .cta-message{
+      margin:0 0 7px;
+      color:var(--text);
+      font-size:11px;
+      text-align:center;
+      line-height:1.5;
     }
 
     .cta-inner{
@@ -510,17 +576,21 @@
 
     @media (min-width:640px){
 
+      .app{
+        max-width:900px;
+      }
+
       .header-inner{
-        padding:16px 34px;
+        padding:16px 42px;
       }
 
       .screen-inner{
-        padding:44px 48px 80px;
+        padding:50px 58px 90px;
       }
 
       .numbered-heading{
-        grid-template-columns:150px 1fr;
-        gap:18px;
+        grid-template-columns:165px 1fr;
+        gap:42px;
       }
 
       .big-number{
@@ -536,8 +606,9 @@
       }
 
       .opening-panel{
-        margin-left:-48px;
-        padding-left:70px;
+        margin-left:-58px;
+        padding-left:78px;
+        padding-right:50px;
       }
 
       .card-list{
@@ -550,6 +621,30 @@
 
       .answer-body{
         font-size:16px;
+      }
+
+      .cta{
+        width:min(900px, 100%);
+      }
+
+      .cta-message{
+        font-size:12px;
+      }
+    }
+
+    @media (min-width:1000px){
+
+      body{
+        padding:28px 0;
+      }
+
+      .app{
+        border-radius:22px;
+        overflow:hidden;
+      }
+
+      .header{
+        border-radius:22px 22px 0 0;
       }
     }
 
@@ -701,11 +796,10 @@
       <div class="screen-inner">
 
         <button
+          id="career-back-button"
           class="back-button"
           onclick="showScreen('jobs')"
-        >
-          ← 職種選択へ戻る
-        </button>
+        ></button>
 
         <div class="numbered-heading">
 
@@ -722,9 +816,7 @@
             <h1
               id="career-title"
               class="page-title"
-            >
-              キャリアを選んでください
-            </h1>
+            ></h1>
 
             <div class="title-line"></div>
 
@@ -732,9 +824,10 @@
 
         </div>
 
-        <p class="lead">
-          あなたに最も近いものを選択してください。
-        </p>
+        <p
+          id="career-lead"
+          class="lead"
+        ></p>
 
         <div class="card-list">
 
@@ -787,11 +880,10 @@
       <div class="screen-inner">
 
         <button
+          id="theme-back-button"
           class="back-button"
           onclick="showScreen('careers')"
-        >
-          ← キャリア選択へ戻る
-        </button>
+        ></button>
 
         <div class="numbered-heading">
 
@@ -805,10 +897,10 @@
               YOUR GUIDE
             </div>
 
-            <h1 class="page-title">
-              何について<br>
-              知りたいですか？
-            </h1>
+            <h1
+              id="theme-title"
+              class="page-title"
+            ></h1>
 
             <div class="title-line"></div>
 
@@ -821,15 +913,15 @@
           class="selection-label"
         ></div>
 
-        <p class="lead">
-          順番はありません。
-          気になるテーマから自由にご覧ください。
-        </p>
+        <p
+          id="theme-lead"
+          class="lead"
+        ></p>
 
         <div class="progress-area">
 
           <div class="progress-text">
-            <span>閲覧状況</span>
+            <span id="progress-label"></span>
             <span id="progress-text">0 / 9</span>
           </div>
 
@@ -858,11 +950,10 @@
       <div class="screen-inner">
 
         <button
+          id="answer-back-button"
           class="back-button"
           onclick="showScreen('themes')"
-        >
-          ← テーマ一覧へ戻る
-        </button>
+        ></button>
 
         <div class="answer-header">
 
@@ -889,16 +980,47 @@
         </div>
 
         <div
+          id="answer-image-top"
+          class="answer-image"
+        >
+          <img
+            id="answer-image-top-img"
+            src=""
+            alt=""
+          >
+
+          <div
+            id="answer-image-top-caption"
+            class="answer-image-caption"
+          ></div>
+        </div>
+
+        <div
           id="answer-content"
           class="answer-body"
         ></div>
 
+        <div
+          id="answer-image-bottom"
+          class="answer-image"
+        >
+          <img
+            id="answer-image-bottom-img"
+            src=""
+            alt=""
+          >
+
+          <div
+            id="answer-image-bottom-caption"
+            class="answer-image-caption"
+          ></div>
+        </div>
+
         <button
+          id="answer-more-button"
           class="primary-button"
           onclick="showScreen('themes')"
-        >
-          他のテーマも見る
-        </button>
+        ></button>
 
       </div>
 
@@ -912,19 +1034,27 @@
 <!-- CTA -->
 <div class="cta">
 
+  <p
+    id="cta-message"
+    class="cta-message"
+  ></p>
+
   <div class="cta-inner">
 
-    <a href="#">
-      相談する
-    </a>
+    <a
+      id="cta-consult"
+      href="#"
+    ></a>
 
-    <a href="#">
-      見学する
-    </a>
+    <a
+      id="cta-visit"
+      href="#"
+    ></a>
 
-    <a href="#">
-      応募する
-    </a>
+    <a
+      id="cta-apply"
+      href="#"
+    ></a>
 
   </div>
 
@@ -934,9 +1064,8 @@
 <script>
 
   /*
-    将来この uiText を
-    Googleスプレッドシートの
-    06_UIテキストマスターから取得する予定。
+    将来の 06_UIテキストマスター 連携対象。
+    現在は仮データとしてここで管理。
   */
 
   const uiText = {
@@ -957,39 +1086,54 @@
       '希望する職種を<br>選んでください',
 
     job_lead:
-      '現在検討している職種を選択してください。'
+      '現在検討している職種を選択してください。',
+
+    career_back:
+      '← 職種選択へ戻る',
+
+    career_title_default:
+      'キャリアを選んでください',
+
+    career_lead:
+      'あなたに最も近いものを選択してください。',
+
+    theme_back:
+      '← キャリア選択へ戻る',
+
+    theme_title:
+      '何について<br>知りたいですか？',
+
+    theme_lead:
+      '順番はありません。気になるテーマから自由にご覧ください。',
+
+    progress_label:
+      '閲覧状況',
+
+    answer_back:
+      '← テーマ一覧へ戻る',
+
+    answer_more_button:
+      '他のテーマも見る',
+
+    cta_message:
+      '相談、見学、応募に関してはこちらから↓',
+
+    cta_consult:
+      '相談する',
+
+    cta_visit:
+      '見学する',
+
+    cta_apply:
+      '応募する'
 
   };
 
 
-  function applyUIText(){
-
-    document.getElementById("opening-title").innerHTML =
-      uiText.opening_title;
-
-    document.getElementById("opening-text").innerHTML =
-      uiText.opening_text;
-
-    document.getElementById("opening-button").textContent =
-      uiText.opening_button;
-
-    document.getElementById("job-back-button").textContent =
-      uiText.job_back;
-
-    document.getElementById("job-title").innerHTML =
-      uiText.job_title;
-
-    document.getElementById("job-lead").textContent =
-      uiText.job_lead;
-
-  }
-
-
-  let selectedJob = "";
-  let selectedCareer = "";
-
-  const readThemes = new Set();
-
+  /*
+    将来はテーママスター・固定回答マスターから取得。
+    icon_key / image_* もマスター連携を想定。
+  */
 
   const themes = [
 
@@ -997,6 +1141,14 @@
       id:1,
       title:"仕事内容・働き方",
       description:"仕事内容や一日の流れ、働き方について",
+      icon_key:"work",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:"",
+
       content:`
         <p>
           ここには
@@ -1035,52 +1187,255 @@
     {
       id:2,
       title:"教育・成長環境",
-      description:"新人教育・研修・入職後のサポートについて"
+      description:"新人教育・研修・入職後のサポートについて",
+      icon_key:"education",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:3,
       title:"給与・待遇・福利厚生",
-      description:"給与条件や福利厚生、各種制度について"
+      description:"給与条件や福利厚生、各種制度について",
+      icon_key:"benefits",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:4,
       title:"職場の雰囲気・人間関係",
-      description:"スタッフや職場の雰囲気について"
+      description:"スタッフや職場の雰囲気について",
+      icon_key:"people",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:5,
       title:"応募・見学について",
-      description:"見学から応募・選考までの流れについて"
+      description:"見学から応募・選考までの流れについて",
+      icon_key:"entry",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:6,
       title:"キャリア・将来性",
-      description:"入職後の成長やキャリアについて"
+      description:"入職後の成長やキャリアについて",
+      icon_key:"career",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:7,
       title:"勤務条件・ワークライフバランス",
-      description:"勤務時間、休日、働き方について"
+      description:"勤務時間、休日、働き方について",
+      icon_key:"balance",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:8,
       title:"法人・クリニックについて",
-      description:"法人の特徴や大切にしていることについて"
+      description:"法人の特徴や大切にしていることについて",
+      icon_key:"clinic",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     },
 
     {
       id:9,
       title:"よくある質問",
-      description:"求職者の皆さまからよくいただく質問"
+      description:"求職者の皆さまからよくいただく質問",
+      icon_key:"faq",
+
+      image_enabled:false,
+      image_url:"",
+      image_position:"top",
+      image_alt:"",
+      image_caption:""
     }
 
   ];
+
+
+  const themeIcons = {
+
+    work:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="7" r="3"></circle>
+        <path d="M6 21v-2a6 6 0 0 1 12 0v2"></path>
+        <path d="M9 14l3 3 3-3"></path>
+      </svg>
+    `,
+
+    education:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22z"></path>
+        <path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22z"></path>
+      </svg>
+    `,
+
+    benefits:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M8 8h8"></path>
+        <path d="M9 5l3 3 3-3"></path>
+        <path d="M9 12h6"></path>
+        <path d="M12 8v10"></path>
+      </svg>
+    `,
+
+    people:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="8" cy="8" r="3"></circle>
+        <circle cx="16" cy="8" r="3"></circle>
+        <path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path>
+        <path d="M10.5 20a5.5 5.5 0 0 1 11 0"></path>
+      </svg>
+    `,
+
+    entry:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="4" width="14" height="16" rx="2"></rect>
+        <path d="M9 4.5h6"></path>
+        <path d="M8 10h8"></path>
+        <path d="M8 14h5"></path>
+      </svg>
+    `,
+
+    career:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18l5-5 4 4 7-8"></path>
+        <path d="M15 9h5v5"></path>
+      </svg>
+    `,
+
+    balance:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>
+    `,
+
+    clinic:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 21V7l8-4 8 4v14"></path>
+        <path d="M9 21v-5h6v5"></path>
+        <path d="M12 8v5"></path>
+        <path d="M9.5 10.5h5"></path>
+      </svg>
+    `,
+
+    faq:`
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M9.5 9a2.5 2.5 0 1 1 4.1 1.9c-1 .8-1.6 1.2-1.6 2.6"></path>
+        <circle cx="12" cy="17" r=".8" fill="currentColor" stroke="none"></circle>
+      </svg>
+    `
+
+  };
+
+
+  let selectedJob = "";
+  let selectedCareer = "";
+
+  const readThemes = new Set();
+
+
+  function applyUIText(){
+
+    document.getElementById("opening-title").innerHTML =
+      uiText.opening_title;
+
+    document.getElementById("opening-text").innerHTML =
+      uiText.opening_text;
+
+    document.getElementById("opening-button").textContent =
+      uiText.opening_button;
+
+    document.getElementById("job-back-button").textContent =
+      uiText.job_back;
+
+    document.getElementById("job-title").innerHTML =
+      uiText.job_title;
+
+    document.getElementById("job-lead").textContent =
+      uiText.job_lead;
+
+    document.getElementById("career-back-button").textContent =
+      uiText.career_back;
+
+    document.getElementById("career-title").textContent =
+      uiText.career_title_default;
+
+    document.getElementById("career-lead").textContent =
+      uiText.career_lead;
+
+    document.getElementById("theme-back-button").textContent =
+      uiText.theme_back;
+
+    document.getElementById("theme-title").innerHTML =
+      uiText.theme_title;
+
+    document.getElementById("theme-lead").textContent =
+      uiText.theme_lead;
+
+    document.getElementById("progress-label").textContent =
+      uiText.progress_label;
+
+    document.getElementById("answer-back-button").textContent =
+      uiText.answer_back;
+
+    document.getElementById("answer-more-button").textContent =
+      uiText.answer_more_button;
+
+    document.getElementById("cta-message").textContent =
+      uiText.cta_message;
+
+    document.getElementById("cta-consult").textContent =
+      uiText.cta_consult;
+
+    document.getElementById("cta-visit").textContent =
+      uiText.cta_visit;
+
+    document.getElementById("cta-apply").textContent =
+      uiText.cta_apply;
+
+  }
 
 
   function showScreen(id){
@@ -1156,12 +1511,20 @@
         );
 
       button.innerHTML = `
-        <span class="card-title">
-          ${theme.title}
+        <span class="theme-icon">
+          ${themeIcons[theme.icon_key] || ""}
         </span>
 
-        <span class="card-description">
-          ${theme.description}
+        <span class="theme-card-content">
+
+          <span class="card-title">
+            ${theme.title}
+          </span>
+
+          <span class="card-description">
+            ${theme.description}
+          </span>
+
         </span>
 
         <span class="read-badge">
@@ -1189,6 +1552,62 @@
       .getElementById("progress-bar")
       .style.width =
       `${count / themes.length * 100}%`;
+
+  }
+
+
+  function resetAnswerImages(){
+
+    const top =
+      document.getElementById("answer-image-top");
+
+    const bottom =
+      document.getElementById("answer-image-bottom");
+
+    top.classList.remove("enabled");
+    bottom.classList.remove("enabled");
+
+  }
+
+
+  function renderAnswerImage(theme){
+
+    resetAnswerImages();
+
+    if(!theme.image_enabled || !theme.image_url){
+      return;
+    }
+
+    const position =
+      theme.image_position === "bottom"
+        ? "bottom"
+        : "top";
+
+    const wrapper =
+      document.getElementById(
+        `answer-image-${position}`
+      );
+
+    const image =
+      document.getElementById(
+        `answer-image-${position}-img`
+      );
+
+    const caption =
+      document.getElementById(
+        `answer-image-${position}-caption`
+      );
+
+    image.src =
+      theme.image_url;
+
+    image.alt =
+      theme.image_alt || "";
+
+    caption.textContent =
+      theme.image_caption || "";
+
+    wrapper.classList.add("enabled");
 
   }
 
@@ -1233,6 +1652,8 @@
           現在はUI確認用の仮文章です。
         </div>
       `;
+
+    renderAnswerImage(theme);
 
     showScreen("answer");
 
