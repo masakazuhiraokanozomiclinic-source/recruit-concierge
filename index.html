@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>採用コンシェルジュ</title>
+
+  <style>
+    :root {
+      --main: #2f7d73;
+      --main-light: #edf7f5;
+      --text: #263238;
+      --sub-text: #607078;
+      --border: #dfe7e5;
+      --background: #f7f9f8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic", "Meiryo", sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.75;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .app {
+      max-width: 720px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: var(--white);
+    }
+
+    /* HEADER */
+    header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .brand {
+      font-size: 15px;
+      color: var(--sub-text);
+      margin-bottom: 2px;
+    }
+
+    .service-name {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--main);
+    }
+
+    /* MAIN */
+    main {
+      padding: 28px 20px 120px;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .eyebrow {
+      color: var(--main);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 25px;
+      line-height: 1.45;
+      margin: 0 0 14px;
+    }
+
+    h2 {
+      font-size: 19px;
+      margin: 30px 0 10px;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      color: var(--sub-text);
+      margin-bottom: 28px;
+    }
+
+    /* CARD */
+    .card-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      width: 100%;
+      text-align: left;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--white);
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .card:hover,
+    .card:focus {
+      border-color: var(--main);
+      background: var(--main-light);
+      outline: none;
+    }
+
+    .card-title {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-description {
+      display: block;
+      margin-top: 5px;
+      font-size: 13px;
+      color: var(--sub-text);
+    }
+
+    /* THEME */
+    .progress {
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      background: var(--main-light);
+      color: var(--main);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .theme-card {
+      position: relative;
+      padding-right: 70px;
+    }
+
+    .read-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 12px;
+      color: var(--sub-text);
+      display: none;
+    }
+
+    .theme-card.read .read-badge {
+      display: block;
+    }
+
+    /* ANSWER */
+    .answer {
+      font-size: 16px;
+    }
+
+    .answer-header {
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .answer-box {
+      padding: 18px;
+      margin: 24px 0;
+      border-radius: 12px;
+      background: var(--main-light);
+    }
+
+    /* BUTTONS */
+    .back-button {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--main);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .primary-button {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--main);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* CTA */
+    .cta {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: min(720px, 100%);
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .cta a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 8px;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--main);
+      background: var(--main-light);
+    }
+
+    .cta a:last-child {
+      color: white;
+      background: var(--main);
+    }
+
+    @media (min-width: 600px) {
+      main {
+        padding: 40px 48px 130px;
+      }
+
+      header {
+        padding: 20px 48px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header>
+    <div class="brand">〇〇医療法人</div>
+    <p class="service-name">採用コンシェルジュ</p>
+  </header>
+
+  <main>
+
+    <!-- オープニング -->
+    <section id="opening" class="screen active">
+      <div class="eyebrow">WELCOME</div>
+
+      <h1>
+        あなたに合った情報を、<br>
+        気になるところから。
+      </h1>
+
+      <p class="lead">
+        仕事内容や職場の雰囲気、働き方など、
+        求職者の方からよくいただく質問をまとめています。
+        まずはあなたの職種を教えてください。
+      </p>
+
+      <button class="primary-button" onclick="showScreen('jobs')">
+        はじめる
+      </button>
+    </section>
+
+
+    <!-- 職種 -->
+    <section id="jobs" class="screen">
+      <button class="back-button" onclick="showScreen('opening')">
+        ← 戻る
+      </button>
+
+      <div class="eyebrow">STEP 1</div>
+      <h1>職種を選んでください</h1>
+
+      <p class="lead">
+        現在検討している職種を選択してください。
+      </p>
+
+      <div class="card-list">
+
+        <button class="card" onclick="selectJob('理学療法士')">
+          <span class="card-title">理学療法士</span>
+          <span class="card-description">
+            外来リハビリテーション・運動器リハビリ
+          </span>
+        </button>
+
+        <button class="card" onclick="selectJob('看護師')">
+          <span class="card-title">看護師</span>
+          <span class="card-description">
+            整形外科クリニックでの看護業務
+          </span>
+        </button>
+
+        <button class="card" onclick="selectJob('医療事務')">
+          <span class="card-title">医療事務</span>
+          <span class="card-description">
+            受付・医療事務・患者対応
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- キャリア -->
+    <section id="careers" class="screen">
+      <button class="back-button" onclick="showScreen('jobs')">
+        ← 職種選択へ戻る
+      </button>
+
+      <div class="eyebrow">STEP 2</div>
+      <h1 id="career-title">キャリアを選んでください</h1>
+
+      <p class="lead">
+        あなたに近いものを選択してください。
+      </p>
+
+      <div class="card-list">
+
+        <button class="card" onclick="selectCareer('新卒')">
+          <span class="card-title">新卒</span>
+          <span class="card-description">
+            学校卒業後、初めて就職する方
+          </span>
+        </button>
+
+        <button class="card" onclick="selectCareer('中途')">
+          <span class="card-title">中途</span>
+          <span class="card-description">
+            実務経験のある方
+          </span>
+        </button>
+
+        <button class="card" onclick="selectCareer('ブランクあり')">
+          <span class="card-title">ブランクあり</span>
+          <span class="card-description">
+            現場復帰を検討している方
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- テーマ一覧 -->
+    <section id="themes" class="screen">
+
+      <button class="back-button" onclick="showScreen('careers')">
+        ← キャリア選択へ戻る
+      </button>
+
+      <div class="eyebrow">GUIDE</div>
+
+      <h1>何について知りたいですか？</h1>
+
+      <p id="selection-info" class="lead"></p>
+
+      <div id="progress" class="progress">
+        9テーマのうち 0テーマを閲覧
+      </div>
+
+      <div id="theme-list" class="card-list"></div>
+
+    </section>
+
+
+    <!-- 回答 -->
+    <section id="answer" class="screen">
+
+      <button class="back-button" onclick="showScreen('themes')">
+        ← テーマ一覧へ戻る
+      </button>
+
+      <article class="answer">
+
+        <div class="answer-header">
+          <div class="eyebrow">ANSWER</div>
+          <h1 id="answer-title"></h1>
+        </div>
+
+        <div id="answer-content"></div>
+
+      </article>
+
+      <button class="primary-button" onclick="showScreen('themes')">
+        他のテーマも見る
+      </button>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- 常設CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <a href="#">相談する</a>
+    <a href="#">見学する</a>
+    <a href="#">応募する</a>
+  </div>
+</div>
+
+
+<script>
+
+  let selectedJob = "";
+  let selectedCareer = "";
+  const readThemes = new Set();
+
+  const themes = [
+    {
+      id: 1,
+      title: "仕事内容・働き方",
+      description: "実際の仕事内容や一日の流れについて",
+      content: `
+        <p>
+          ここには「仕事内容・働き方」についての固定回答が入ります。
+        </p>
+
+        <h2>どんな仕事をするの？</h2>
+
+        <p>
+          実際の業務内容や、一日の流れなどを分かりやすく紹介します。
+          本番では職種・キャリアごとに内容が変わります。
+        </p>
+
+        <div class="answer-box">
+          この部分には、特に知ってほしいポイントや補足情報を掲載できます。
+        </div>
+
+        <h2>大切にしていること</h2>
+
+        <p>
+          単なる業務説明だけではなく、法人として仕事で大切にしている考え方も
+          必要に応じて紹介します。
+        </p>
+      `
+    },
+    {
+      id: 2,
+      title: "教育・成長環境",
+      description: "研修・教育・入職後のサポートについて"
+    },
+    {
+      id: 3,
+      title: "給与・待遇・福利厚生",
+      description: "給与や各種制度について"
+    },
+    {
+      id: 4,
+      title: "職場の雰囲気・人間関係",
+      description: "職場の雰囲気やスタッフについて"
+    },
+    {
+      id: 5,
+      title: "応募・見学について",
+      description: "見学から応募までの流れについて"
+    },
+    {
+      id: 6,
+      title: "キャリア・将来性",
+      description: "入職後の成長やキャリアについて"
+    },
+    {
+      id: 7,
+      title: "勤務条件・ワークライフバランス",
+      description: "勤務時間や休日、働き方について"
+    },
+    {
+      id: 8,
+      title: "法人・クリニックについて",
+      description: "法人の特徴や考え方について"
+    },
+    {
+      id: 9,
+      title: "よくある質問",
+      description: "求職者の方からよくいただく質問"
+    }
+  ];
+
+
+  function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    if (id === "themes") {
+      renderThemes();
+    }
+  }
+
+
+  function selectJob(job) {
+
+    selectedJob = job;
+
+    document.getElementById("career-title").textContent =
+      job + "のキャリアを選んでください";
+
+    showScreen("careers");
+  }
+
+
+  function selectCareer(career) {
+
+    selectedCareer = career;
+
+    document.getElementById("selection-info").textContent =
+      selectedJob + " ／ " + selectedCareer;
+
+    showScreen("themes");
+  }
+
+
+  function renderThemes() {
+
+    const list = document.getElementById("theme-list");
+
+    list.innerHTML = "";
+
+    themes.forEach(theme => {
+
+      const button = document.createElement("button");
+
+      button.className =
+        "card theme-card" +
+        (readThemes.has(theme.id) ? " read" : "");
+
+      button.innerHTML = `
+        <span class="card-title">${theme.title}</span>
+        <span class="card-description">${theme.description}</span>
+        <span class="read-badge">✓ 閲覧済み</span>
+      `;
+
+      button.onclick = () => openTheme(theme);
+
+      list.appendChild(button);
+    });
+
+    document.getElementById("progress").textContent =
+      "9テーマのうち " +
+      readThemes.size +
+      "テーマを閲覧";
+  }
+
+
+  function openTheme(theme) {
+
+    readThemes.add(theme.id);
+
+    document.getElementById("answer-title").textContent =
+      theme.title;
+
+    document.getElementById("answer-content").innerHTML =
+      theme.content || `
+        <p>
+          ここには「${theme.title}」についての固定回答が表示されます。
+        </p>
+
+        <h2>このテーマについて</h2>
+
+        <p>
+          本番では、選択された職種とキャリアに合わせた回答を
+          Googleスプレッドシートから取得して表示します。
+        </p>
+
+        <div class="answer-box">
+          現在はUI確認用の仮文章です。
+        </div>
+      `;
+
+    showScreen("answer");
+  }
+
+</script>
+
+</body>
+</html>
