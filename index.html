@@ -66,7 +66,9 @@
       box-shadow:0 0 40px rgba(0,0,0,.04);
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     .header{
       position:sticky;
@@ -122,10 +124,12 @@
       flex-shrink:0;
     }
 
-    /* MAIN */
+    /* =========================
+       MAIN
+    ========================= */
 
     main{
-      padding-bottom:150px;
+      padding-bottom:225px;
     }
 
     .screen{
@@ -175,7 +179,9 @@
       font-weight:700;
     }
 
-    /* BACK */
+    /* =========================
+       BACK
+    ========================= */
 
     .back-button{
       border:0;
@@ -188,7 +194,9 @@
       cursor:pointer;
     }
 
-    /* NUMBER + HEADING */
+    /* =========================
+       NUMBER + HEADING
+    ========================= */
 
     .numbered-heading{
       display:grid;
@@ -212,7 +220,9 @@
       min-width:0;
     }
 
-    /* OPENING */
+    /* =========================
+       OPENING
+    ========================= */
 
     .opening-hero{
       min-height:calc(100vh - 185px);
@@ -259,7 +269,9 @@
       font-size:15px;
     }
 
-    /* BUTTON */
+    /* =========================
+       BUTTON
+    ========================= */
 
     .primary-button{
       width:100%;
@@ -279,7 +291,9 @@
       transform:scale(.985);
     }
 
-    /* CARDS */
+    /* =========================
+       CARDS
+    ========================= */
 
     .card-list{
       display:grid;
@@ -335,7 +349,9 @@
       line-height:1.6;
     }
 
-    /* THEME CARD ICON */
+    /* =========================
+       THEME CARD
+    ========================= */
 
     .theme-card{
       display:grid;
@@ -379,15 +395,20 @@
       font-weight:700;
     }
 
+    /* 閲覧済みテーマ */
+
     .theme-card.read{
-      background:#fbfefe;
+      background:#e2f4f1;
+      border-color:#bfe5df;
     }
 
     .theme-card.read .read-badge{
       display:block;
     }
 
-    /* THEMES */
+    /* =========================
+       THEMES
+    ========================= */
 
     .selection-label{
       display:inline-block;
@@ -430,7 +451,9 @@
       transition:.25s ease;
     }
 
-    /* ANSWER */
+    /* =========================
+       ANSWER
+    ========================= */
 
     .answer-header{
       position:relative;
@@ -498,7 +521,9 @@
       color:var(--text);
     }
 
-    /* FUTURE IMAGE SUPPORT */
+    /* =========================
+       FUTURE IMAGE SUPPORT
+    ========================= */
 
     .answer-image{
       display:none;
@@ -523,7 +548,52 @@
       line-height:1.6;
     }
 
-    /* CTA */
+    /* =========================
+       PHILOSOPHY PAGE
+    ========================= */
+
+    .philosophy-intro{
+      margin:8px 0 28px;
+      padding:22px;
+      border-left:5px solid var(--primary);
+      background:var(--primary-soft);
+      border-radius:0 16px 16px 0;
+    }
+
+    .philosophy-intro strong{
+      color:var(--primary-deep);
+    }
+
+    .philosophy-body{
+      font-size:15px;
+    }
+
+    .philosophy-body p{
+      margin:0 0 18px;
+    }
+
+    .philosophy-body h2{
+      position:relative;
+      margin:38px 0 14px;
+      padding-top:12px;
+      color:var(--text-dark);
+      font-size:19px;
+      line-height:1.5;
+    }
+
+    .philosophy-body h2::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:42px;
+      height:2px;
+      background:var(--primary);
+    }
+
+    /* =========================
+       CTA + PHILOSOPHY BUTTON
+    ========================= */
 
     .cta{
       position:fixed;
@@ -536,6 +606,72 @@
       border-top:1px solid var(--border);
       background:rgba(255,255,255,.97);
       backdrop-filter:blur(8px);
+    }
+
+    /*
+      PhilosophyはFactカードとは別カテゴリー。
+      カードではなく「特別な入口」として見せる。
+    */
+
+    .philosophy-link{
+      width:100%;
+      margin:0 0 9px;
+      padding:0;
+      border:none;
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .philosophy-link-inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:58px;
+      padding:12px 17px;
+      border:1px solid rgba(69,181,170,.38);
+      border-radius:14px;
+      background:
+        linear-gradient(
+          135deg,
+          #f4fbfa 0%,
+          #e7f6f3 100%
+        );
+      text-align:left;
+      transition:.16s ease;
+    }
+
+    .philosophy-link-label{
+      display:block;
+      margin-bottom:1px;
+      color:var(--primary-deep);
+      font-size:9px;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .philosophy-link-title{
+      display:block;
+      color:var(--text-dark);
+      font-size:14px;
+      font-weight:700;
+      line-height:1.45;
+    }
+
+    .philosophy-link-arrow{
+      color:var(--primary-dark);
+      font-family:Georgia, serif;
+      font-size:25px;
+      line-height:1;
+      flex-shrink:0;
+    }
+
+    .philosophy-link:hover .philosophy-link-inner,
+    .philosophy-link:focus-visible .philosophy-link-inner{
+      border-color:var(--primary-dark);
+      background:#e1f4f1;
+      outline:none;
     }
 
     .cta-message{
@@ -572,7 +708,9 @@
       color:#fff;
     }
 
-    /* PC */
+    /* =========================
+       PC
+    ========================= */
 
     @media (min-width:640px){
 
@@ -619,7 +757,8 @@
         min-height:112px;
       }
 
-      .answer-body{
+      .answer-body,
+      .philosophy-body{
         font-size:16px;
       }
 
@@ -629,6 +768,10 @@
 
       .cta-message{
         font-size:12px;
+      }
+
+      .philosophy-link-title{
+        font-size:15px;
       }
     }
 
@@ -655,25 +798,47 @@
 
 <div class="app">
 
+  <!-- HEADER -->
+
   <header class="header">
+
     <div class="header-inner">
 
       <div class="brand">
-        <p class="brand-tagline">your hope, our hope.</p>
-        <p class="brand-name">のぞみ整形外科グループ</p>
-        <p class="brand-sub">採用コンシェルジュ</p>
+
+        <p class="brand-tagline">
+          your hope, our hope.
+        </p>
+
+        <p class="brand-name">
+          のぞみ整形外科グループ
+        </p>
+
+        <p class="brand-sub">
+          採用コンシェルジュ
+        </p>
+
       </div>
 
-      <div class="header-mark">N</div>
+      <div class="header-mark">
+        N
+      </div>
 
     </div>
+
   </header>
 
 
   <main>
 
-    <!-- OPENING -->
-    <section id="opening" class="screen active">
+    <!-- =========================
+         OPENING
+    ========================== -->
+
+    <section
+      id="opening"
+      class="screen active"
+    >
 
       <div class="screen-inner opening-hero">
 
@@ -706,8 +871,14 @@
     </section>
 
 
-    <!-- JOB -->
-    <section id="jobs" class="screen">
+    <!-- =========================
+         JOB
+    ========================== -->
+
+    <section
+      id="jobs"
+      class="screen"
+    >
 
       <div class="screen-inner">
 
@@ -751,36 +922,47 @@
             class="card"
             onclick="selectJob('理学療法士')"
           >
+
             <span class="card-title">
               理学療法士
             </span>
+
             <span class="card-description">
               外来・通所・訪問リハビリテーション
             </span>
+
           </button>
+
 
           <button
             class="card"
             onclick="selectJob('看護師')"
           >
+
             <span class="card-title">
               看護師
             </span>
+
             <span class="card-description">
               整形外科クリニックでの看護業務
             </span>
+
           </button>
+
 
           <button
             class="card"
             onclick="selectJob('医療事務')"
           >
+
             <span class="card-title">
               医療事務
             </span>
+
             <span class="card-description">
               受付・医療事務・患者対応
             </span>
+
           </button>
 
         </div>
@@ -790,8 +972,14 @@
     </section>
 
 
-    <!-- CAREER -->
-    <section id="careers" class="screen">
+    <!-- =========================
+         CAREER
+    ========================== -->
+
+    <section
+      id="careers"
+      class="screen"
+    >
 
       <div class="screen-inner">
 
@@ -835,36 +1023,47 @@
             class="card"
             onclick="selectCareer('新卒')"
           >
+
             <span class="card-title">
               新卒
             </span>
+
             <span class="card-description">
               学校卒業後、初めて就職する方
             </span>
+
           </button>
+
 
           <button
             class="card"
             onclick="selectCareer('中途')"
           >
+
             <span class="card-title">
               中途
             </span>
+
             <span class="card-description">
               実務経験のある方
             </span>
+
           </button>
+
 
           <button
             class="card"
             onclick="selectCareer('ブランクあり')"
           >
+
             <span class="card-title">
               ブランクあり
             </span>
+
             <span class="card-description">
               現場復帰を検討している方
             </span>
+
           </button>
 
         </div>
@@ -874,8 +1073,14 @@
     </section>
 
 
-    <!-- THEMES -->
-    <section id="themes" class="screen">
+    <!-- =========================
+         THEMES
+    ========================== -->
+
+    <section
+      id="themes"
+      class="screen"
+    >
 
       <div class="screen-inner">
 
@@ -921,15 +1126,22 @@
         <div class="progress-area">
 
           <div class="progress-text">
+
             <span id="progress-label"></span>
-            <span id="progress-text">0 / 9</span>
+
+            <span id="progress-text">
+              0 / 9
+            </span>
+
           </div>
 
           <div class="progress-track">
+
             <div
               id="progress-bar"
               class="progress-bar"
             ></div>
+
           </div>
 
         </div>
@@ -944,8 +1156,14 @@
     </section>
 
 
-    <!-- ANSWER -->
-    <section id="answer" class="screen">
+    <!-- =========================
+         ANSWER
+    ========================== -->
+
+    <section
+      id="answer"
+      class="screen"
+    >
 
       <div class="screen-inner">
 
@@ -979,10 +1197,14 @@
 
         </div>
 
+
+        <!-- 将来の画像挿入：上部 -->
+
         <div
           id="answer-image-top"
           class="answer-image"
         >
+
           <img
             id="answer-image-top-img"
             src=""
@@ -993,17 +1215,23 @@
             id="answer-image-top-caption"
             class="answer-image-caption"
           ></div>
+
         </div>
+
 
         <div
           id="answer-content"
           class="answer-body"
         ></div>
 
+
+        <!-- 将来の画像挿入：下部 -->
+
         <div
           id="answer-image-bottom"
           class="answer-image"
         >
+
           <img
             id="answer-image-bottom-img"
             src=""
@@ -1014,7 +1242,9 @@
             id="answer-image-bottom-caption"
             class="answer-image-caption"
           ></div>
+
         </div>
+
 
         <button
           id="answer-more-button"
@@ -1026,18 +1256,115 @@
 
     </section>
 
+
+    <!-- =========================
+         PHILOSOPHY
+    ========================== -->
+
+    <section
+      id="philosophy"
+      class="screen"
+    >
+
+      <div class="screen-inner">
+
+        <button
+          id="philosophy-back-button"
+          class="back-button"
+          onclick="returnFromPhilosophy()"
+        ></button>
+
+        <div class="numbered-heading">
+
+          <div class="big-number">
+            P
+          </div>
+
+          <div class="heading-text">
+
+            <div class="eyebrow">
+              PHILOSOPHY
+            </div>
+
+            <h1
+              id="philosophy-title"
+              class="page-title"
+            ></h1>
+
+            <div class="title-line"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="philosophy-intro">
+
+          <strong id="philosophy-intro"></strong>
+
+        </div>
+
+
+        <div
+          id="philosophy-content"
+          class="philosophy-body"
+        ></div>
+
+      </div>
+
+    </section>
+
   </main>
 
 </div>
 
 
-<!-- CTA -->
+<!-- =========================
+     FIXED FOOTER
+========================== -->
+
 <div class="cta">
+
+  <!-- PHILOSOPHY -->
+
+  <button
+    class="philosophy-link"
+    onclick="openPhilosophy()"
+  >
+
+    <span class="philosophy-link-inner">
+
+      <span>
+
+        <span class="philosophy-link-label">
+          PHILOSOPHY
+        </span>
+
+        <span
+          id="philosophy-link-title"
+          class="philosophy-link-title"
+        ></span>
+
+      </span>
+
+      <span class="philosophy-link-arrow">
+        →
+      </span>
+
+    </span>
+
+  </button>
+
+
+  <!-- CTA GUIDE -->
 
   <p
     id="cta-message"
     class="cta-message"
   ></p>
+
+
+  <!-- CTA BUTTONS -->
 
   <div class="cta-inner">
 
@@ -1064,8 +1391,10 @@
 <script>
 
   /*
-    将来の 06_UIテキストマスター 連携対象。
-    現在は仮データとしてここで管理。
+    ==========================================
+    06_UIテキストマスター連携予定
+    現在はUI確認用の仮マスター
+    ==========================================
   */
 
   const uiText = {
@@ -1079,6 +1408,7 @@
     opening_button:
       '採用コンシェルジュをはじめる',
 
+
     job_back:
       '← 最初に戻る',
 
@@ -1088,6 +1418,7 @@
     job_lead:
       '現在検討している職種を選択してください。',
 
+
     career_back:
       '← 職種選択へ戻る',
 
@@ -1096,6 +1427,7 @@
 
     career_lead:
       'あなたに最も近いものを選択してください。',
+
 
     theme_back:
       '← キャリア選択へ戻る',
@@ -1109,11 +1441,34 @@
     progress_label:
       '閲覧状況',
 
+
     answer_back:
       '← テーマ一覧へ戻る',
 
     answer_more_button:
       '他のテーマも見る',
+
+
+    /*
+      Philosophy関連も将来マスター連携
+    */
+
+    philosophy_link_title:
+      'のぞみ整形外科が目指す医療',
+
+    philosophy_back:
+      '← 前の画面へ戻る',
+
+    philosophy_title:
+      'のぞみ整形外科が<br>目指す医療',
+
+    philosophy_intro:
+      'Factだけでは伝わらない、私たちが大切にしている考え方。',
+
+
+    /*
+      CTA
+    */
 
     cta_message:
       '相談、見学、応募に関してはこちらから↓',
@@ -1131,16 +1486,70 @@
 
 
   /*
-    将来はテーママスター・固定回答マスターから取得。
-    icon_key / image_* もマスター連携を想定。
+    ==========================================
+    PHILOSOPHY CONTENT
+    現在はUI確認用の仮文章
+    ==========================================
+  */
+
+  const philosophyContent = `
+
+    <p>
+      仕事内容や勤務条件、教育制度などの
+      「Fact」だけでは、
+      私たちがどんな医療を目指しているのかを
+      すべて伝えることはできません。
+    </p>
+
+    <p>
+      ここでは、
+      のぞみ整形外科が患者さんとどのように関わり、
+      地域の中でどんな医療を目指しているのか。
+      私たちが大切にしている考え方を紹介します。
+    </p>
+
+    <h2>
+      点ではなく、線で関わる
+    </h2>
+
+    <p>
+      一回の診察、一回のリハビリ、
+      一回の処置だけを見るのではなく、
+      その人がこれからどのような生活を送りたいのかまで考える。
+    </p>
+
+    <p>
+      ここには今後、
+      のぞみ整形外科が大切にしている医療観や、
+      患者さんとの関わり方についての
+      Philosophyコンテンツを掲載します。
+    </p>
+
+    <div class="answer-box">
+      現在はPhilosophyページのUI確認用の仮文章です。
+      本文は今後あらためて作成します。
+    </div>
+
+  `;
+
+
+  /*
+    ==========================================
+    THEME MASTER
+    将来はGoogleスプレッドシートから取得
+    ==========================================
   */
 
   const themes = [
 
     {
       id:1,
+
       title:"仕事内容・働き方",
-      description:"仕事内容や一日の流れ、働き方について",
+
+      description:
+        "仕事内容や一日の流れ、働き方について",
+
       icon_key:"work",
 
       image_enabled:false,
@@ -1184,10 +1593,15 @@
       `
     },
 
+
     {
       id:2,
+
       title:"教育・成長環境",
-      description:"新人教育・研修・入職後のサポートについて",
+
+      description:
+        "新人教育・研修・入職後のサポートについて",
+
       icon_key:"education",
 
       image_enabled:false,
@@ -1197,10 +1611,15 @@
       image_caption:""
     },
 
+
     {
       id:3,
+
       title:"給与・待遇・福利厚生",
-      description:"給与条件や福利厚生、各種制度について",
+
+      description:
+        "給与条件や福利厚生、各種制度について",
+
       icon_key:"benefits",
 
       image_enabled:false,
@@ -1210,10 +1629,15 @@
       image_caption:""
     },
 
+
     {
       id:4,
+
       title:"職場の雰囲気・人間関係",
-      description:"スタッフや職場の雰囲気について",
+
+      description:
+        "スタッフや職場の雰囲気について",
+
       icon_key:"people",
 
       image_enabled:false,
@@ -1223,10 +1647,15 @@
       image_caption:""
     },
 
+
     {
       id:5,
+
       title:"応募・見学について",
-      description:"見学から応募・選考までの流れについて",
+
+      description:
+        "見学から応募・選考までの流れについて",
+
       icon_key:"entry",
 
       image_enabled:false,
@@ -1236,10 +1665,15 @@
       image_caption:""
     },
 
+
     {
       id:6,
+
       title:"キャリア・将来性",
-      description:"入職後の成長やキャリアについて",
+
+      description:
+        "入職後の成長やキャリアについて",
+
       icon_key:"career",
 
       image_enabled:false,
@@ -1249,10 +1683,15 @@
       image_caption:""
     },
 
+
     {
       id:7,
+
       title:"勤務条件・ワークライフバランス",
-      description:"勤務時間、休日、働き方について",
+
+      description:
+        "勤務時間、休日、働き方について",
+
       icon_key:"balance",
 
       image_enabled:false,
@@ -1262,10 +1701,15 @@
       image_caption:""
     },
 
+
     {
       id:8,
+
       title:"法人・クリニックについて",
-      description:"法人の特徴や大切にしていることについて",
+
+      description:
+        "法人の特徴や大切にしていることについて",
+
       icon_key:"clinic",
 
       image_enabled:false,
@@ -1275,10 +1719,15 @@
       image_caption:""
     },
 
+
     {
       id:9,
+
       title:"よくある質問",
-      description:"求職者の皆さまからよくいただく質問",
+
+      description:
+        "求職者の皆さまからよくいただく質問",
+
       icon_key:"faq",
 
       image_enabled:false,
@@ -1291,6 +1740,12 @@
   ];
 
 
+  /*
+    ==========================================
+    THEME ICONS
+    ==========================================
+  */
+
   const themeIcons = {
 
     work:`
@@ -1301,12 +1756,14 @@
       </svg>
     `,
 
+
     education:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22z"></path>
         <path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22z"></path>
       </svg>
     `,
+
 
     benefits:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1318,6 +1775,7 @@
       </svg>
     `,
 
+
     people:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="8" cy="8" r="3"></circle>
@@ -1326,6 +1784,7 @@
         <path d="M10.5 20a5.5 5.5 0 0 1 11 0"></path>
       </svg>
     `,
+
 
     entry:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1336,6 +1795,7 @@
       </svg>
     `,
 
+
     career:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 18l5-5 4 4 7-8"></path>
@@ -1343,12 +1803,14 @@
       </svg>
     `,
 
+
     balance:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="9"></circle>
         <path d="M12 7v5l3 2"></path>
       </svg>
     `,
+
 
     clinic:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1359,148 +1821,293 @@
       </svg>
     `,
 
+
     faq:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="9"></circle>
         <path d="M9.5 9a2.5 2.5 0 1 1 4.1 1.9c-1 .8-1.6 1.2-1.6 2.6"></path>
-        <circle cx="12" cy="17" r=".8" fill="currentColor" stroke="none"></circle>
+        <circle
+          cx="12"
+          cy="17"
+          r=".8"
+          fill="currentColor"
+          stroke="none"
+        ></circle>
       </svg>
     `
 
   };
 
 
+  /*
+    ==========================================
+    STATE
+    ==========================================
+  */
+
   let selectedJob = "";
   let selectedCareer = "";
+
+  let previousScreenBeforePhilosophy = "opening";
 
   const readThemes = new Set();
 
 
+  /*
+    ==========================================
+    UI TEXT
+    ==========================================
+  */
+
   function applyUIText(){
 
-    document.getElementById("opening-title").innerHTML =
+    document
+      .getElementById("opening-title")
+      .innerHTML =
       uiText.opening_title;
 
-    document.getElementById("opening-text").innerHTML =
+
+    document
+      .getElementById("opening-text")
+      .innerHTML =
       uiText.opening_text;
 
-    document.getElementById("opening-button").textContent =
+
+    document
+      .getElementById("opening-button")
+      .textContent =
       uiText.opening_button;
 
-    document.getElementById("job-back-button").textContent =
+
+    document
+      .getElementById("job-back-button")
+      .textContent =
       uiText.job_back;
 
-    document.getElementById("job-title").innerHTML =
+
+    document
+      .getElementById("job-title")
+      .innerHTML =
       uiText.job_title;
 
-    document.getElementById("job-lead").textContent =
+
+    document
+      .getElementById("job-lead")
+      .textContent =
       uiText.job_lead;
 
-    document.getElementById("career-back-button").textContent =
+
+    document
+      .getElementById("career-back-button")
+      .textContent =
       uiText.career_back;
 
-    document.getElementById("career-title").textContent =
+
+    document
+      .getElementById("career-title")
+      .textContent =
       uiText.career_title_default;
 
-    document.getElementById("career-lead").textContent =
+
+    document
+      .getElementById("career-lead")
+      .textContent =
       uiText.career_lead;
 
-    document.getElementById("theme-back-button").textContent =
+
+    document
+      .getElementById("theme-back-button")
+      .textContent =
       uiText.theme_back;
 
-    document.getElementById("theme-title").innerHTML =
+
+    document
+      .getElementById("theme-title")
+      .innerHTML =
       uiText.theme_title;
 
-    document.getElementById("theme-lead").textContent =
+
+    document
+      .getElementById("theme-lead")
+      .textContent =
       uiText.theme_lead;
 
-    document.getElementById("progress-label").textContent =
+
+    document
+      .getElementById("progress-label")
+      .textContent =
       uiText.progress_label;
 
-    document.getElementById("answer-back-button").textContent =
+
+    document
+      .getElementById("answer-back-button")
+      .textContent =
       uiText.answer_back;
 
-    document.getElementById("answer-more-button").textContent =
+
+    document
+      .getElementById("answer-more-button")
+      .textContent =
       uiText.answer_more_button;
 
-    document.getElementById("cta-message").textContent =
+
+    document
+      .getElementById("philosophy-link-title")
+      .textContent =
+      uiText.philosophy_link_title;
+
+
+    document
+      .getElementById("philosophy-back-button")
+      .textContent =
+      uiText.philosophy_back;
+
+
+    document
+      .getElementById("philosophy-title")
+      .innerHTML =
+      uiText.philosophy_title;
+
+
+    document
+      .getElementById("philosophy-intro")
+      .textContent =
+      uiText.philosophy_intro;
+
+
+    document
+      .getElementById("philosophy-content")
+      .innerHTML =
+      philosophyContent;
+
+
+    document
+      .getElementById("cta-message")
+      .textContent =
       uiText.cta_message;
 
-    document.getElementById("cta-consult").textContent =
+
+    document
+      .getElementById("cta-consult")
+      .textContent =
       uiText.cta_consult;
 
-    document.getElementById("cta-visit").textContent =
+
+    document
+      .getElementById("cta-visit")
+      .textContent =
       uiText.cta_visit;
 
-    document.getElementById("cta-apply").textContent =
+
+    document
+      .getElementById("cta-apply")
+      .textContent =
       uiText.cta_apply;
 
   }
 
+
+  /*
+    ==========================================
+    SCREEN
+    ==========================================
+  */
 
   function showScreen(id){
 
     document
       .querySelectorAll(".screen")
       .forEach(screen => {
+
         screen.classList.remove("active");
+
       });
+
 
     document
       .getElementById(id)
       .classList.add("active");
+
 
     window.scrollTo({
       top:0,
       behavior:"smooth"
     });
 
+
     if(id === "themes"){
+
       renderThemes();
+
     }
 
   }
 
 
+  /*
+    ==========================================
+    JOB
+    ==========================================
+  */
+
   function selectJob(job){
 
     selectedJob = job;
+
 
     document
       .getElementById("career-title")
       .innerHTML =
       `${job}の<br>キャリアを選んでください`;
 
+
     showScreen("careers");
 
   }
 
 
+  /*
+    ==========================================
+    CAREER
+    ==========================================
+  */
+
   function selectCareer(career){
 
     selectedCareer = career;
+
 
     document
       .getElementById("selection-info")
       .textContent =
       `${selectedJob} ／ ${selectedCareer}`;
 
+
     showScreen("themes");
 
   }
 
+
+  /*
+    ==========================================
+    THEMES
+    ==========================================
+  */
 
   function renderThemes(){
 
     const list =
       document.getElementById("theme-list");
 
+
     list.innerHTML = "";
+
 
     themes.forEach(theme => {
 
       const button =
         document.createElement("button");
+
 
       button.className =
         "card theme-card" +
@@ -1510,10 +2117,15 @@
             : ""
         );
 
+
       button.innerHTML = `
+
         <span class="theme-icon">
+
           ${themeIcons[theme.icon_key] || ""}
+
         </span>
+
 
         <span class="theme-card-content">
 
@@ -1527,13 +2139,17 @@
 
         </span>
 
+
         <span class="read-badge">
           ✓ 閲覧済み
         </span>
+
       `;
+
 
       button.onclick =
         () => openTheme(theme);
+
 
       list.appendChild(button);
 
@@ -1543,10 +2159,12 @@
     const count =
       readThemes.size;
 
+
     document
       .getElementById("progress-text")
       .textContent =
       `${count} / ${themes.length}`;
+
 
     document
       .getElementById("progress-bar")
@@ -1556,6 +2174,12 @@
   }
 
 
+  /*
+    ==========================================
+    ANSWER IMAGE
+    ==========================================
+  */
+
   function resetAnswerImages(){
 
     const top =
@@ -1564,7 +2188,9 @@
     const bottom =
       document.getElementById("answer-image-bottom");
 
+
     top.classList.remove("enabled");
+
     bottom.classList.remove("enabled");
 
   }
@@ -1574,62 +2200,86 @@
 
     resetAnswerImages();
 
-    if(!theme.image_enabled || !theme.image_url){
+
+    if(
+      !theme.image_enabled ||
+      !theme.image_url
+    ){
+
       return;
+
     }
+
 
     const position =
       theme.image_position === "bottom"
         ? "bottom"
         : "top";
 
+
     const wrapper =
       document.getElementById(
         `answer-image-${position}`
       );
+
 
     const image =
       document.getElementById(
         `answer-image-${position}-img`
       );
 
+
     const caption =
       document.getElementById(
         `answer-image-${position}-caption`
       );
 
+
     image.src =
       theme.image_url;
+
 
     image.alt =
       theme.image_alt || "";
 
+
     caption.textContent =
       theme.image_caption || "";
+
 
     wrapper.classList.add("enabled");
 
   }
 
 
+  /*
+    ==========================================
+    OPEN THEME
+    ==========================================
+  */
+
   function openTheme(theme){
 
     readThemes.add(theme.id);
+
 
     document
       .getElementById("answer-title")
       .textContent =
       theme.title;
 
+
     document
       .getElementById("answer-number")
       .textContent =
       String(theme.id).padStart(2,"0");
 
+
     document
       .getElementById("answer-content")
       .innerHTML =
       theme.content || `
+
         <p>
           ここには
           <span class="highlight">
@@ -1651,14 +2301,70 @@
         <div class="answer-box">
           現在はUI確認用の仮文章です。
         </div>
+
       `;
 
+
     renderAnswerImage(theme);
+
 
     showScreen("answer");
 
   }
 
+
+  /*
+    ==========================================
+    PHILOSOPHY
+    ==========================================
+  */
+
+  function getCurrentScreen(){
+
+    const current =
+      document.querySelector(".screen.active");
+
+    return current
+      ? current.id
+      : "opening";
+
+  }
+
+
+  function openPhilosophy(){
+
+    const currentScreen =
+      getCurrentScreen();
+
+
+    if(currentScreen !== "philosophy"){
+
+      previousScreenBeforePhilosophy =
+        currentScreen;
+
+    }
+
+
+    showScreen("philosophy");
+
+  }
+
+
+  function returnFromPhilosophy(){
+
+    showScreen(
+      previousScreenBeforePhilosophy ||
+      "opening"
+    );
+
+  }
+
+
+  /*
+    ==========================================
+    INITIALIZE
+    ==========================================
+  */
 
   applyUIText();
 
