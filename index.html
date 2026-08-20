@@ -264,9 +264,48 @@
     }
 
     .opening-text{
-      margin:0 0 28px;
+      margin:0 0 24px;
       color:var(--text);
       font-size:15px;
+    }
+
+    /* =========================
+       ILLUSTRATIONS
+    ========================= */
+
+    .illustration{
+      margin:24px 0;
+    }
+
+    .illustration-card{
+      position:relative;
+      overflow:hidden;
+      padding:18px;
+      border:1px solid #d8ece9;
+      border-radius:20px;
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #f2faf9 100%
+        );
+    }
+
+    .illustration-card svg{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .illustration-caption{
+      margin:8px 2px 0;
+      color:var(--text-light);
+      font-size:11px;
+      line-height:1.6;
+    }
+
+    .opening-illustration{
+      margin:20px 0 26px;
     }
 
     /* =========================
@@ -394,8 +433,6 @@
       font-size:11px;
       font-weight:700;
     }
-
-    /* 閲覧済みテーマ */
 
     .theme-card.read{
       background:#e2f4f1;
@@ -608,11 +645,6 @@
       backdrop-filter:blur(8px);
     }
 
-    /*
-      PhilosophyはFactカードとは別カテゴリー。
-      カードではなく「特別な入口」として見せる。
-    */
-
     .philosophy-link{
       width:100%;
       margin:0 0 9px;
@@ -773,6 +805,10 @@
       .philosophy-link-title{
         font-size:15px;
       }
+
+      .illustration-card{
+        padding:24px;
+      }
     }
 
     @media (min-width:1000px){
@@ -798,47 +834,26 @@
 
 <div class="app">
 
-  <!-- HEADER -->
-
   <header class="header">
-
     <div class="header-inner">
 
       <div class="brand">
-
-        <p class="brand-tagline">
-          your hope, our hope.
-        </p>
-
-        <p class="brand-name">
-          のぞみ整形外科グループ
-        </p>
-
-        <p class="brand-sub">
-          採用コンシェルジュ
-        </p>
-
+        <p class="brand-tagline">your hope, our hope.</p>
+        <p class="brand-name">のぞみ整形外科グループ</p>
+        <p class="brand-sub">採用コンシェルジュ</p>
       </div>
 
-      <div class="header-mark">
-        N
-      </div>
+      <div class="header-mark">N</div>
 
     </div>
-
   </header>
 
 
   <main>
 
-    <!-- =========================
-         OPENING
-    ========================== -->
+    <!-- OPENING -->
 
-    <section
-      id="opening"
-      class="screen active"
-    >
+    <section id="opening" class="screen active">
 
       <div class="screen-inner opening-hero">
 
@@ -858,6 +873,90 @@
             class="opening-text"
           ></p>
 
+
+          <!-- たたき台挿絵① -->
+
+          <figure class="illustration opening-illustration">
+
+            <div class="illustration-card">
+
+              <svg
+                viewBox="0 0 600 240"
+                role="img"
+                aria-label="一つひとつの出会いが線としてつながっていくイメージ"
+              >
+
+                <path
+                  d="M45 165
+                     C120 165, 115 75, 200 92
+                     S290 200, 355 135
+                     S455 48, 555 90"
+                  fill="none"
+                  stroke="#78cfc7"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                />
+
+                <circle cx="45" cy="165" r="11" fill="#45b5aa"/>
+                <circle cx="200" cy="92" r="11" fill="#78cfc7"/>
+                <circle cx="355" cy="135" r="11" fill="#78cfc7"/>
+                <circle cx="555" cy="90" r="11" fill="#45b5aa"/>
+
+                <circle cx="45" cy="165" r="22" fill="none" stroke="#dff3f1" stroke-width="8"/>
+                <circle cx="555" cy="90" r="22" fill="none" stroke="#dff3f1" stroke-width="8"/>
+
+                <text
+                  x="45"
+                  y="208"
+                  text-anchor="middle"
+                  font-size="20"
+                  fill="#666a6c"
+                >
+                  出会う
+                </text>
+
+                <text
+                  x="200"
+                  y="58"
+                  text-anchor="middle"
+                  font-size="20"
+                  fill="#666a6c"
+                >
+                  支える
+                </text>
+
+                <text
+                  x="355"
+                  y="180"
+                  text-anchor="middle"
+                  font-size="20"
+                  fill="#666a6c"
+                >
+                  日常へ戻る
+                </text>
+
+                <text
+                  x="555"
+                  y="58"
+                  text-anchor="middle"
+                  font-size="20"
+                  fill="#666a6c"
+                >
+                  またつながる
+                </text>
+
+              </svg>
+
+            </div>
+
+            <figcaption
+              id="opening-illustration-caption"
+              class="illustration-caption"
+            ></figcaption>
+
+          </figure>
+
+
           <button
             id="opening-button"
             class="primary-button"
@@ -871,14 +970,9 @@
     </section>
 
 
-    <!-- =========================
-         JOB
-    ========================== -->
+    <!-- JOB -->
 
-    <section
-      id="jobs"
-      class="screen"
-    >
+    <section id="jobs" class="screen">
 
       <div class="screen-inner">
 
@@ -922,7 +1016,6 @@
             class="card"
             onclick="selectJob('理学療法士')"
           >
-
             <span class="card-title">
               理学療法士
             </span>
@@ -930,7 +1023,6 @@
             <span class="card-description">
               外来・通所・訪問リハビリテーション
             </span>
-
           </button>
 
 
@@ -938,7 +1030,6 @@
             class="card"
             onclick="selectJob('看護師')"
           >
-
             <span class="card-title">
               看護師
             </span>
@@ -946,7 +1037,6 @@
             <span class="card-description">
               整形外科クリニックでの看護業務
             </span>
-
           </button>
 
 
@@ -954,7 +1044,6 @@
             class="card"
             onclick="selectJob('医療事務')"
           >
-
             <span class="card-title">
               医療事務
             </span>
@@ -962,7 +1051,6 @@
             <span class="card-description">
               受付・医療事務・患者対応
             </span>
-
           </button>
 
         </div>
@@ -972,14 +1060,9 @@
     </section>
 
 
-    <!-- =========================
-         CAREER
-    ========================== -->
+    <!-- CAREER -->
 
-    <section
-      id="careers"
-      class="screen"
-    >
+    <section id="careers" class="screen">
 
       <div class="screen-inner">
 
@@ -1023,7 +1106,6 @@
             class="card"
             onclick="selectCareer('新卒')"
           >
-
             <span class="card-title">
               新卒
             </span>
@@ -1031,7 +1113,6 @@
             <span class="card-description">
               学校卒業後、初めて就職する方
             </span>
-
           </button>
 
 
@@ -1039,7 +1120,6 @@
             class="card"
             onclick="selectCareer('中途')"
           >
-
             <span class="card-title">
               中途
             </span>
@@ -1047,7 +1127,6 @@
             <span class="card-description">
               実務経験のある方
             </span>
-
           </button>
 
 
@@ -1055,7 +1134,6 @@
             class="card"
             onclick="selectCareer('ブランクあり')"
           >
-
             <span class="card-title">
               ブランクあり
             </span>
@@ -1063,7 +1141,6 @@
             <span class="card-description">
               現場復帰を検討している方
             </span>
-
           </button>
 
         </div>
@@ -1073,14 +1150,9 @@
     </section>
 
 
-    <!-- =========================
-         THEMES
-    ========================== -->
+    <!-- THEMES -->
 
-    <section
-      id="themes"
-      class="screen"
-    >
+    <section id="themes" class="screen">
 
       <div class="screen-inner">
 
@@ -1126,22 +1198,15 @@
         <div class="progress-area">
 
           <div class="progress-text">
-
             <span id="progress-label"></span>
-
-            <span id="progress-text">
-              0 / 9
-            </span>
-
+            <span id="progress-text">0 / 9</span>
           </div>
 
           <div class="progress-track">
-
             <div
               id="progress-bar"
               class="progress-bar"
             ></div>
-
           </div>
 
         </div>
@@ -1156,14 +1221,9 @@
     </section>
 
 
-    <!-- =========================
-         ANSWER
-    ========================== -->
+    <!-- ANSWER -->
 
-    <section
-      id="answer"
-      class="screen"
-    >
+    <section id="answer" class="screen">
 
       <div class="screen-inner">
 
@@ -1198,13 +1258,10 @@
         </div>
 
 
-        <!-- 将来の画像挿入：上部 -->
-
         <div
           id="answer-image-top"
           class="answer-image"
         >
-
           <img
             id="answer-image-top-img"
             src=""
@@ -1215,7 +1272,6 @@
             id="answer-image-top-caption"
             class="answer-image-caption"
           ></div>
-
         </div>
 
 
@@ -1225,13 +1281,10 @@
         ></div>
 
 
-        <!-- 将来の画像挿入：下部 -->
-
         <div
           id="answer-image-bottom"
           class="answer-image"
         >
-
           <img
             id="answer-image-bottom-img"
             src=""
@@ -1242,7 +1295,6 @@
             id="answer-image-bottom-caption"
             class="answer-image-caption"
           ></div>
-
         </div>
 
 
@@ -1257,14 +1309,9 @@
     </section>
 
 
-    <!-- =========================
-         PHILOSOPHY
-    ========================== -->
+    <!-- PHILOSOPHY -->
 
-    <section
-      id="philosophy"
-      class="screen"
-    >
+    <section id="philosophy" class="screen">
 
       <div class="screen-inner">
 
@@ -1297,7 +1344,6 @@
 
         </div>
 
-
         <div class="philosophy-intro">
 
           <strong id="philosophy-intro"></strong>
@@ -1305,10 +1351,308 @@
         </div>
 
 
+        <!-- たたき台挿絵② -->
+
+        <figure class="illustration">
+
+          <div class="illustration-card">
+
+            <svg
+              viewBox="0 0 680 330"
+              role="img"
+              aria-label="身体、生活、その人へと視点を広げる医療のイメージ"
+            >
+
+              <circle
+                cx="340"
+                cy="165"
+                r="130"
+                fill="#f5fbfa"
+                stroke="#dff3f1"
+                stroke-width="3"
+              />
+
+              <circle
+                cx="340"
+                cy="165"
+                r="91"
+                fill="#e8f7f5"
+                stroke="#cbece8"
+                stroke-width="3"
+              />
+
+              <circle
+                cx="340"
+                cy="165"
+                r="52"
+                fill="#78cfc7"
+              />
+
+              <text
+                x="340"
+                y="158"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#ffffff"
+              >
+                身体
+              </text>
+
+              <text
+                x="340"
+                y="192"
+                text-anchor="middle"
+                font-size="15"
+                fill="#ffffff"
+              >
+                症状・機能
+              </text>
+
+              <text
+                x="340"
+                y="78"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#328f87"
+              >
+                生活
+              </text>
+
+              <text
+                x="340"
+                y="268"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#666a6c"
+              >
+                その人
+              </text>
+
+              <text
+                x="95"
+                y="95"
+                text-anchor="middle"
+                font-size="16"
+                fill="#666a6c"
+              >
+                学校
+              </text>
+
+              <text
+                x="90"
+                y="235"
+                text-anchor="middle"
+                font-size="16"
+                fill="#666a6c"
+              >
+                家庭
+              </text>
+
+              <text
+                x="585"
+                y="95"
+                text-anchor="middle"
+                font-size="16"
+                fill="#666a6c"
+              >
+                仕事
+              </text>
+
+              <text
+                x="590"
+                y="235"
+                text-anchor="middle"
+                font-size="16"
+                fill="#666a6c"
+              >
+                趣味・地域
+              </text>
+
+              <path
+                d="M130 100 C190 115 205 135 225 145"
+                fill="none"
+                stroke="#78cfc7"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M125 225 C185 205 205 190 225 182"
+                fill="none"
+                stroke="#78cfc7"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M550 100 C495 115 470 135 455 145"
+                fill="none"
+                stroke="#78cfc7"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M555 225 C500 205 475 190 455 182"
+                fill="none"
+                stroke="#78cfc7"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
+          </div>
+
+          <figcaption
+            id="philosophy-illustration-caption"
+            class="illustration-caption"
+          ></figcaption>
+
+        </figure>
+
+
         <div
           id="philosophy-content"
           class="philosophy-body"
         ></div>
+
+
+        <!-- たたき台挿絵③ -->
+
+        <figure class="illustration">
+
+          <div class="illustration-card">
+
+            <svg
+              viewBox="0 0 720 300"
+              role="img"
+              aria-label="患者の人生の線と医療者のキャリアの線が交わりながら続くイメージ"
+            >
+
+              <text
+                x="35"
+                y="58"
+                font-size="15"
+                font-weight="700"
+                fill="#328f87"
+              >
+                患者さんの人生
+              </text>
+
+              <path
+                d="M40 95
+                   C135 45, 210 150, 300 100
+                   S455 55, 540 112
+                   S630 155, 680 85"
+                fill="none"
+                stroke="#45b5aa"
+                stroke-width="5"
+                stroke-linecap="round"
+              />
+
+              <text
+                x="35"
+                y="205"
+                font-size="15"
+                font-weight="700"
+                fill="#666a6c"
+              >
+                医療者のキャリア
+              </text>
+
+              <path
+                d="M40 240
+                   C135 270, 210 165, 300 210
+                   S455 260, 540 198
+                   S630 160, 680 225"
+                fill="none"
+                stroke="#a8b4b2"
+                stroke-width="5"
+                stroke-linecap="round"
+              />
+
+              <circle cx="180" cy="121" r="10" fill="#ffffff" stroke="#45b5aa" stroke-width="4"/>
+              <circle cx="300" cy="100" r="10" fill="#ffffff" stroke="#45b5aa" stroke-width="4"/>
+              <circle cx="515" cy="98" r="10" fill="#ffffff" stroke="#45b5aa" stroke-width="4"/>
+
+              <circle cx="180" cy="221" r="10" fill="#ffffff" stroke="#8c9997" stroke-width="4"/>
+              <circle cx="300" cy="210" r="10" fill="#ffffff" stroke="#8c9997" stroke-width="4"/>
+              <circle cx="515" cy="214" r="10" fill="#ffffff" stroke="#8c9997" stroke-width="4"/>
+
+              <line
+                x1="180"
+                y1="130"
+                x2="180"
+                y2="211"
+                stroke="#dff3f1"
+                stroke-width="4"
+                stroke-dasharray="6 7"
+              />
+
+              <line
+                x1="300"
+                y1="110"
+                x2="300"
+                y2="200"
+                stroke="#dff3f1"
+                stroke-width="4"
+                stroke-dasharray="6 7"
+              />
+
+              <line
+                x1="515"
+                y1="108"
+                x2="515"
+                y2="204"
+                stroke="#dff3f1"
+                stroke-width="4"
+                stroke-dasharray="6 7"
+              />
+
+              <text
+                x="180"
+                y="175"
+                text-anchor="middle"
+                font-size="13"
+                fill="#8a8e90"
+              >
+                出会う
+              </text>
+
+              <text
+                x="300"
+                y="160"
+                text-anchor="middle"
+                font-size="13"
+                fill="#8a8e90"
+              >
+                学ぶ
+              </text>
+
+              <text
+                x="515"
+                y="165"
+                text-anchor="middle"
+                font-size="13"
+                fill="#8a8e90"
+              >
+                再び交わる
+              </text>
+
+            </svg>
+
+          </div>
+
+          <figcaption
+            id="career-line-caption"
+            class="illustration-caption"
+          ></figcaption>
+
+        </figure>
 
       </div>
 
@@ -1319,13 +1663,9 @@
 </div>
 
 
-<!-- =========================
-     FIXED FOOTER
-========================== -->
+<!-- FIXED FOOTER -->
 
 <div class="cta">
-
-  <!-- PHILOSOPHY -->
 
   <button
     class="philosophy-link"
@@ -1356,15 +1696,11 @@
   </button>
 
 
-  <!-- CTA GUIDE -->
-
   <p
     id="cta-message"
     class="cta-message"
   ></p>
 
-
-  <!-- CTA BUTTONS -->
 
   <div class="cta-inner">
 
@@ -1390,12 +1726,9 @@
 
 <script>
 
-  /*
-    ==========================================
-    06_UIテキストマスター連携予定
-    現在はUI確認用の仮マスター
-    ==========================================
-  */
+  /* =========================
+     UI TEXT MASTER
+  ========================= */
 
   const uiText = {
 
@@ -1407,6 +1740,9 @@
 
     opening_button:
       '採用コンシェルジュをはじめる',
+
+    opening_illustration_caption:
+      '一回一回の関わりという「点」が、時間の中で「線」へつながっていく。',
 
 
     job_back:
@@ -1449,10 +1785,6 @@
       '他のテーマも見る',
 
 
-    /*
-      Philosophy関連も将来マスター連携
-    */
-
     philosophy_link_title:
       'のぞみ整形外科が目指す医療',
 
@@ -1465,10 +1797,12 @@
     philosophy_intro:
       'Factだけでは伝わらない、私たちが大切にしている考え方。',
 
+    philosophy_illustration_caption:
+      '症状だけでなく、身体を、生活を、その人自身を考える。',
 
-    /*
-      CTA
-    */
+    career_line_caption:
+      '患者さんの人生の線と、医療者自身のキャリアの線も、時間の中で何度も交わっていく。',
+
 
     cta_message:
       '相談、見学、応募に関してはこちらから↓',
@@ -1485,27 +1819,27 @@
   };
 
 
-  /*
-    ==========================================
-    PHILOSOPHY CONTENT
-    現在はUI確認用の仮文章
-    ==========================================
-  */
+  /* =========================
+     PHILOSOPHY CONTENT
+  ========================= */
 
   const philosophyContent = `
 
     <p>
-      仕事内容や勤務条件、教育制度などの
-      「Fact」だけでは、
-      私たちがどんな医療を目指しているのかを
-      すべて伝えることはできません。
+      私たちが目指しているのは、
+      痛みを取ることや身体機能を改善することだけではありません。
     </p>
 
     <p>
-      ここでは、
-      のぞみ整形外科が患者さんとどのように関わり、
-      地域の中でどんな医療を目指しているのか。
-      私たちが大切にしている考え方を紹介します。
+      その人がどう生きたいのか。
+      何を大切にしているのか。
+      この身体で、どんな生活を続けていきたいのか。
+    </p>
+
+    <p>
+      そこまで考えたうえで、
+      運動器医療の専門家として
+      その人らしい生活を支えたいと考えています。
     </p>
 
     <h2>
@@ -1515,41 +1849,35 @@
     <p>
       一回の診察、一回のリハビリ、
       一回の処置だけを見るのではなく、
-      その人がこれからどのような生活を送りたいのかまで考える。
+      その人の生活と、その先に続く時間を見る。
     </p>
 
     <p>
-      ここには今後、
-      のぞみ整形外科が大切にしている医療観や、
-      患者さんとの関わり方についての
-      Philosophyコンテンツを掲載します。
+      快癒すれば医療から離れてもらっていい。
+      何年間も会わないことがあってもいい。
+      それでもまた困ったときに、
+      「そういえば、あそこに相談してみよう」
+      と思い出してもらえる存在でありたい。
     </p>
 
     <div class="answer-box">
-      現在はPhilosophyページのUI確認用の仮文章です。
-      本文は今後あらためて作成します。
+      必要なときに、いつでも頼れる場所として存在し続ける。
+      それが、私たちが考える「線の医療」です。
     </div>
 
   `;
 
 
-  /*
-    ==========================================
-    THEME MASTER
-    将来はGoogleスプレッドシートから取得
-    ==========================================
-  */
+  /* =========================
+     THEME MASTER
+  ========================= */
 
   const themes = [
 
     {
       id:1,
-
       title:"仕事内容・働き方",
-
-      description:
-        "仕事内容や一日の流れ、働き方について",
-
+      description:"仕事内容や一日の流れ、働き方について",
       icon_key:"work",
 
       image_enabled:false,
@@ -1559,6 +1887,7 @@
       image_caption:"",
 
       content:`
+
         <p>
           ここには
           <span class="highlight">
@@ -1566,6 +1895,150 @@
           </span>
           についての固定回答が入ります。
         </p>
+
+
+        <figure class="illustration">
+
+          <div class="illustration-card">
+
+            <svg
+              viewBox="0 0 640 210"
+              role="img"
+              aria-label="身体から生活、その人へと視点を広げるイメージ"
+            >
+
+              <rect
+                x="30"
+                y="55"
+                width="160"
+                height="100"
+                rx="22"
+                fill="#78cfc7"
+              />
+
+              <rect
+                x="240"
+                y="55"
+                width="160"
+                height="100"
+                rx="22"
+                fill="#e8f7f5"
+                stroke="#bfe5df"
+                stroke-width="2"
+              />
+
+              <rect
+                x="450"
+                y="55"
+                width="160"
+                height="100"
+                rx="22"
+                fill="#ffffff"
+                stroke="#bfe5df"
+                stroke-width="2"
+              />
+
+              <text
+                x="110"
+                y="103"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#ffffff"
+              >
+                身体
+              </text>
+
+              <text
+                x="110"
+                y="132"
+                text-anchor="middle"
+                font-size="14"
+                fill="#ffffff"
+              >
+                症状・機能
+              </text>
+
+              <text
+                x="320"
+                y="103"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#328f87"
+              >
+                生活
+              </text>
+
+              <text
+                x="320"
+                y="132"
+                text-anchor="middle"
+                font-size="14"
+                fill="#666a6c"
+              >
+                仕事・学校・家庭
+              </text>
+
+              <text
+                x="530"
+                y="103"
+                text-anchor="middle"
+                font-size="22"
+                font-weight="700"
+                fill="#45494b"
+              >
+                その人
+              </text>
+
+              <text
+                x="530"
+                y="132"
+                text-anchor="middle"
+                font-size="14"
+                fill="#666a6c"
+              >
+                希望・価値観
+              </text>
+
+              <path
+                d="M195 105 H230"
+                stroke="#45b5aa"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M220 95 L230 105 L220 115"
+                fill="none"
+                stroke="#45b5aa"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M405 105 H440"
+                stroke="#45b5aa"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M430 95 L440 105 L430 115"
+                fill="none"
+                stroke="#45b5aa"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </div>
+
+        </figure>
+
 
         <h2>
           どんな仕事をするの？
@@ -1590,20 +2063,16 @@
           仕事を通して何を大切にしているのかも
           分かりやすく紹介します。
         </p>
+
       `
     },
 
 
     {
       id:2,
-
       title:"教育・成長環境",
-
-      description:
-        "新人教育・研修・入職後のサポートについて",
-
+      description:"新人教育・研修・入職後のサポートについて",
       icon_key:"education",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1614,14 +2083,9 @@
 
     {
       id:3,
-
       title:"給与・待遇・福利厚生",
-
-      description:
-        "給与条件や福利厚生、各種制度について",
-
+      description:"給与条件や福利厚生、各種制度について",
       icon_key:"benefits",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1632,14 +2096,9 @@
 
     {
       id:4,
-
       title:"職場の雰囲気・人間関係",
-
-      description:
-        "スタッフや職場の雰囲気について",
-
+      description:"スタッフや職場の雰囲気について",
       icon_key:"people",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1650,14 +2109,9 @@
 
     {
       id:5,
-
       title:"応募・見学について",
-
-      description:
-        "見学から応募・選考までの流れについて",
-
+      description:"見学から応募・選考までの流れについて",
       icon_key:"entry",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1668,14 +2122,9 @@
 
     {
       id:6,
-
       title:"キャリア・将来性",
-
-      description:
-        "入職後の成長やキャリアについて",
-
+      description:"入職後の成長やキャリアについて",
       icon_key:"career",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1686,14 +2135,9 @@
 
     {
       id:7,
-
       title:"勤務条件・ワークライフバランス",
-
-      description:
-        "勤務時間、休日、働き方について",
-
+      description:"勤務時間、休日、働き方について",
       icon_key:"balance",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1704,14 +2148,9 @@
 
     {
       id:8,
-
       title:"法人・クリニックについて",
-
-      description:
-        "法人の特徴や大切にしていることについて",
-
+      description:"法人の特徴や大切にしていることについて",
       icon_key:"clinic",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1722,14 +2161,9 @@
 
     {
       id:9,
-
       title:"よくある質問",
-
-      description:
-        "求職者の皆さまからよくいただく質問",
-
+      description:"求職者の皆さまからよくいただく質問",
       icon_key:"faq",
-
       image_enabled:false,
       image_url:"",
       image_position:"top",
@@ -1740,11 +2174,9 @@
   ];
 
 
-  /*
-    ==========================================
-    THEME ICONS
-    ==========================================
-  */
+  /* =========================
+     ICONS
+  ========================= */
 
   const themeIcons = {
 
@@ -1756,14 +2188,12 @@
       </svg>
     `,
 
-
     education:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22z"></path>
         <path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22z"></path>
       </svg>
     `,
-
 
     benefits:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1775,7 +2205,6 @@
       </svg>
     `,
 
-
     people:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="8" cy="8" r="3"></circle>
@@ -1784,7 +2213,6 @@
         <path d="M10.5 20a5.5 5.5 0 0 1 11 0"></path>
       </svg>
     `,
-
 
     entry:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1795,7 +2223,6 @@
       </svg>
     `,
 
-
     career:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 18l5-5 4 4 7-8"></path>
@@ -1803,14 +2230,12 @@
       </svg>
     `,
 
-
     balance:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="9"></circle>
         <path d="M12 7v5l3 2"></path>
       </svg>
     `,
-
 
     clinic:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1821,293 +2246,195 @@
       </svg>
     `,
 
-
     faq:`
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="9"></circle>
         <path d="M9.5 9a2.5 2.5 0 1 1 4.1 1.9c-1 .8-1.6 1.2-1.6 2.6"></path>
-        <circle
-          cx="12"
-          cy="17"
-          r=".8"
-          fill="currentColor"
-          stroke="none"
-        ></circle>
+        <circle cx="12" cy="17" r=".8" fill="currentColor" stroke="none"></circle>
       </svg>
     `
 
   };
 
 
-  /*
-    ==========================================
-    STATE
-    ==========================================
-  */
+  /* =========================
+     STATE
+  ========================= */
 
   let selectedJob = "";
   let selectedCareer = "";
-
   let previousScreenBeforePhilosophy = "opening";
 
   const readThemes = new Set();
 
 
-  /*
-    ==========================================
-    UI TEXT
-    ==========================================
-  */
+  /* =========================
+     APPLY UI TEXT
+  ========================= */
 
   function applyUIText(){
 
-    document
-      .getElementById("opening-title")
-      .innerHTML =
+    document.getElementById("opening-title").innerHTML =
       uiText.opening_title;
 
-
-    document
-      .getElementById("opening-text")
-      .innerHTML =
+    document.getElementById("opening-text").innerHTML =
       uiText.opening_text;
 
-
-    document
-      .getElementById("opening-button")
-      .textContent =
+    document.getElementById("opening-button").textContent =
       uiText.opening_button;
 
+    document.getElementById("opening-illustration-caption").textContent =
+      uiText.opening_illustration_caption;
 
-    document
-      .getElementById("job-back-button")
-      .textContent =
+
+    document.getElementById("job-back-button").textContent =
       uiText.job_back;
 
-
-    document
-      .getElementById("job-title")
-      .innerHTML =
+    document.getElementById("job-title").innerHTML =
       uiText.job_title;
 
-
-    document
-      .getElementById("job-lead")
-      .textContent =
+    document.getElementById("job-lead").textContent =
       uiText.job_lead;
 
 
-    document
-      .getElementById("career-back-button")
-      .textContent =
+    document.getElementById("career-back-button").textContent =
       uiText.career_back;
 
-
-    document
-      .getElementById("career-title")
-      .textContent =
+    document.getElementById("career-title").textContent =
       uiText.career_title_default;
 
-
-    document
-      .getElementById("career-lead")
-      .textContent =
+    document.getElementById("career-lead").textContent =
       uiText.career_lead;
 
 
-    document
-      .getElementById("theme-back-button")
-      .textContent =
+    document.getElementById("theme-back-button").textContent =
       uiText.theme_back;
 
-
-    document
-      .getElementById("theme-title")
-      .innerHTML =
+    document.getElementById("theme-title").innerHTML =
       uiText.theme_title;
 
-
-    document
-      .getElementById("theme-lead")
-      .textContent =
+    document.getElementById("theme-lead").textContent =
       uiText.theme_lead;
 
-
-    document
-      .getElementById("progress-label")
-      .textContent =
+    document.getElementById("progress-label").textContent =
       uiText.progress_label;
 
 
-    document
-      .getElementById("answer-back-button")
-      .textContent =
+    document.getElementById("answer-back-button").textContent =
       uiText.answer_back;
 
-
-    document
-      .getElementById("answer-more-button")
-      .textContent =
+    document.getElementById("answer-more-button").textContent =
       uiText.answer_more_button;
 
 
-    document
-      .getElementById("philosophy-link-title")
-      .textContent =
+    document.getElementById("philosophy-link-title").textContent =
       uiText.philosophy_link_title;
 
-
-    document
-      .getElementById("philosophy-back-button")
-      .textContent =
+    document.getElementById("philosophy-back-button").textContent =
       uiText.philosophy_back;
 
-
-    document
-      .getElementById("philosophy-title")
-      .innerHTML =
+    document.getElementById("philosophy-title").innerHTML =
       uiText.philosophy_title;
 
-
-    document
-      .getElementById("philosophy-intro")
-      .textContent =
+    document.getElementById("philosophy-intro").textContent =
       uiText.philosophy_intro;
 
-
-    document
-      .getElementById("philosophy-content")
-      .innerHTML =
+    document.getElementById("philosophy-content").innerHTML =
       philosophyContent;
 
+    document.getElementById("philosophy-illustration-caption").textContent =
+      uiText.philosophy_illustration_caption;
 
-    document
-      .getElementById("cta-message")
-      .textContent =
+    document.getElementById("career-line-caption").textContent =
+      uiText.career_line_caption;
+
+
+    document.getElementById("cta-message").textContent =
       uiText.cta_message;
 
-
-    document
-      .getElementById("cta-consult")
-      .textContent =
+    document.getElementById("cta-consult").textContent =
       uiText.cta_consult;
 
-
-    document
-      .getElementById("cta-visit")
-      .textContent =
+    document.getElementById("cta-visit").textContent =
       uiText.cta_visit;
 
-
-    document
-      .getElementById("cta-apply")
-      .textContent =
+    document.getElementById("cta-apply").textContent =
       uiText.cta_apply;
 
   }
 
 
-  /*
-    ==========================================
-    SCREEN
-    ==========================================
-  */
+  /* =========================
+     SCREEN
+  ========================= */
 
   function showScreen(id){
 
     document
       .querySelectorAll(".screen")
       .forEach(screen => {
-
         screen.classList.remove("active");
-
       });
-
 
     document
       .getElementById(id)
       .classList.add("active");
-
 
     window.scrollTo({
       top:0,
       behavior:"smooth"
     });
 
-
     if(id === "themes"){
-
       renderThemes();
-
     }
 
   }
 
 
-  /*
-    ==========================================
-    JOB
-    ==========================================
-  */
-
   function selectJob(job){
 
     selectedJob = job;
-
 
     document
       .getElementById("career-title")
       .innerHTML =
       `${job}の<br>キャリアを選んでください`;
 
-
     showScreen("careers");
 
   }
 
 
-  /*
-    ==========================================
-    CAREER
-    ==========================================
-  */
-
   function selectCareer(career){
 
     selectedCareer = career;
-
 
     document
       .getElementById("selection-info")
       .textContent =
       `${selectedJob} ／ ${selectedCareer}`;
 
-
     showScreen("themes");
 
   }
 
 
-  /*
-    ==========================================
-    THEMES
-    ==========================================
-  */
+  /* =========================
+     THEMES
+  ========================= */
 
   function renderThemes(){
 
     const list =
       document.getElementById("theme-list");
 
-
     list.innerHTML = "";
-
 
     themes.forEach(theme => {
 
       const button =
         document.createElement("button");
-
 
       button.className =
         "card theme-card" +
@@ -2117,15 +2444,11 @@
             : ""
         );
 
-
       button.innerHTML = `
 
         <span class="theme-icon">
-
           ${themeIcons[theme.icon_key] || ""}
-
         </span>
-
 
         <span class="theme-card-content">
 
@@ -2139,17 +2462,14 @@
 
         </span>
 
-
         <span class="read-badge">
           ✓ 閲覧済み
         </span>
 
       `;
 
-
       button.onclick =
         () => openTheme(theme);
-
 
       list.appendChild(button);
 
@@ -2159,12 +2479,10 @@
     const count =
       readThemes.size;
 
-
     document
       .getElementById("progress-text")
       .textContent =
       `${count} / ${themes.length}`;
-
 
     document
       .getElementById("progress-bar")
@@ -2174,24 +2492,19 @@
   }
 
 
-  /*
-    ==========================================
-    ANSWER IMAGE
-    ==========================================
-  */
+  /* =========================
+     ANSWER IMAGE
+  ========================= */
 
   function resetAnswerImages(){
 
-    const top =
-      document.getElementById("answer-image-top");
+    document
+      .getElementById("answer-image-top")
+      .classList.remove("enabled");
 
-    const bottom =
-      document.getElementById("answer-image-bottom");
-
-
-    top.classList.remove("enabled");
-
-    bottom.classList.remove("enabled");
+    document
+      .getElementById("answer-image-bottom")
+      .classList.remove("enabled");
 
   }
 
@@ -2200,80 +2513,64 @@
 
     resetAnswerImages();
 
-
     if(
       !theme.image_enabled ||
       !theme.image_url
     ){
-
       return;
-
     }
-
 
     const position =
       theme.image_position === "bottom"
         ? "bottom"
         : "top";
 
-
     const wrapper =
       document.getElementById(
         `answer-image-${position}`
       );
-
 
     const image =
       document.getElementById(
         `answer-image-${position}-img`
       );
 
-
     const caption =
       document.getElementById(
         `answer-image-${position}-caption`
       );
 
-
     image.src =
       theme.image_url;
-
 
     image.alt =
       theme.image_alt || "";
 
-
     caption.textContent =
       theme.image_caption || "";
-
 
     wrapper.classList.add("enabled");
 
   }
 
 
-  /*
-    ==========================================
-    OPEN THEME
-    ==========================================
-  */
+  /* =========================
+     OPEN THEME
+  ========================= */
 
   function openTheme(theme){
 
     readThemes.add(theme.id);
-
 
     document
       .getElementById("answer-title")
       .textContent =
       theme.title;
 
-
     document
       .getElementById("answer-number")
       .textContent =
       String(theme.id).padStart(2,"0");
-
 
     document
       .getElementById("answer-content")
@@ -2304,20 +2601,16 @@
 
       `;
 
-
     renderAnswerImage(theme);
-
 
     showScreen("answer");
 
   }
 
 
-  /*
-    ==========================================
-    PHILOSOPHY
-    ==========================================
-  */
+  /* =========================
+     PHILOSOPHY
+  ========================= */
 
   function getCurrentScreen(){
 
@@ -2336,14 +2629,10 @@
     const currentScreen =
       getCurrentScreen();
 
-
     if(currentScreen !== "philosophy"){
-
       previousScreenBeforePhilosophy =
         currentScreen;
-
     }
-
 
     showScreen("philosophy");
 
@@ -2360,11 +2649,9 @@
   }
 
 
-  /*
-    ==========================================
-    INITIALIZE
-    ==========================================
-  */
+  /* =========================
+     INITIALIZE
+  ========================= */
 
   applyUIText();
 
