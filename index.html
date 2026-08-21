@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD: philosophy-layout-v3-20260821 -->
+<!-- BUILD: philosophy-layout-v4-20260821 -->
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -1715,8 +1715,8 @@
       <p>患者さんの身体を診て、生活を知り、その人自身と向き合う。この考え方を、私たちは日々の仕事の中で形にしていきます。</p>
     </div>
 
-    <button class="primary-button philosophy-return-button" type="button" onclick="returnFromPhilosophy()">
-      ひとつ前の画面に戻る
+    <button class="primary-button philosophy-return-button" type="button" onclick="returnToThemesFromPhilosophy()">
+      テーマ選択画面に戻る
     </button>
 
   `;
@@ -2821,6 +2821,22 @@
       previousScreenBeforePhilosophy ||
       "opening"
     );
+
+  }
+
+
+  function returnToThemesFromPhilosophy(){
+
+    if(selectedJob && selectedCareer){
+
+      renderThemes();
+      showScreen("themes");
+
+    }else{
+
+      showScreen("jobs");
+
+    }
 
   }
 
