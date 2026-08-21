@@ -2383,14 +2383,16 @@
       button.className="answer-slide";
       button.setAttribute("aria-label",`${image.alt || "資料画像"}を拡大`);
       const img=document.createElement("img");
-      img.src=(window.RECRUIT_ASSETS || {})[image.src] || image.src;
+      const source=(window.RECRUIT_ASSETS || {})[image.src] || image.src;
+      img.src=new URL(source,document.baseURI).href;
       img.alt=image.alt || "";
-      img.loading="lazy";
+      img.loading="eager";
+      img.decoding="async";
       const caption=document.createElement("span");
       caption.className="answer-slide-caption";
       caption.textContent=`採用ピッチ資料 ${image.page}ページ（タップで拡大）`;
       button.append(img,caption);
-      button.addEventListener("click",()=>openLightbox(image.src,image.alt));
+      button.addEventListener("click",()=>openLightbox(img.currentSrc || img.src,image.alt));
       gallery.appendChild(button);
     });
   }
@@ -2398,7 +2400,7 @@
   function openLightbox(src,alt){
     const lightbox=document.getElementById("image-lightbox");
     const image=document.getElementById("lightbox-image");
-    image.src=src;
+    image.src=new URL(src,document.baseURI).href;
     image.alt=alt || "";
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden","false");
