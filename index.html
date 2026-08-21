@@ -1899,6 +1899,10 @@
       label:"のぞみ整形外科の公式サイトを見る",
       url:"https://www.nozomi-clinic.jp/"
     },
+    instagram:{
+      label:"Instagramで職場の様子を見る",
+      url:"https://www.instagram.com/nozomiseikei_clinic/"
+    },
     faq:{
       label:"採用に関するよくある質問を見る",
       url:"https://www.nozomi-clinic.jp/recruit/faq"
@@ -1910,6 +1914,18 @@
     carePerson:{
       label:"介護士のスタッフ紹介を見る",
       url:"https://www.nozomi-clinic.jp/recruit/person/77"
+    },
+    phone:{
+      label:"電話で問い合わせる（082-264-1700）",
+      url:"tel:0822641700"
+    },
+    email:{
+      label:"メールで問い合わせる",
+      url:"mailto:staff-recruit@nozomi-clinic.jp"
+    },
+    contact:{
+      label:"WEBフォームで問い合わせる",
+      url:"https://www.nozomi-clinic.jp/recruit/contact"
     }
   };
 
@@ -2101,6 +2117,19 @@
       .getElementById("cta-apply")
       .textContent =
       uiText.cta_apply;
+
+    const consultLink=document.getElementById("cta-consult");
+    consultLink.href="mailto:staff-recruit@nozomi-clinic.jp";
+
+    const visitLink=document.getElementById("cta-visit");
+    visitLink.href="https://www.nozomi-clinic.jp/recruit/contact";
+    visitLink.target="_blank";
+    visitLink.rel="noopener noreferrer";
+
+    const applyLink=document.getElementById("cta-apply");
+    applyLink.href="https://www.nozomi-clinic.jp/recruit/contact";
+    applyLink.target="_blank";
+    applyLink.rel="noopener noreferrer";
 
   }
 
@@ -2450,10 +2479,14 @@
   }
 
   function informationLinkMarkup(link){
+    const isDeviceAction=/^(tel:|mailto:)/.test(link.url);
+    const externalAttributes=isDeviceAction
+      ? ""
+      : ' target="_blank" rel="noopener noreferrer"';
     return `
-      <a class="info-link-card" href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">
+      <a class="info-link-card" href="${escapeHtml(link.url)}"${externalAttributes}>
         <span>${escapeHtml(link.label)}</span>
-        <span aria-hidden="true">↗</span>
+        <span aria-hidden="true">${isDeviceAction ? "→" : "↗"}</span>
       </a>
     `;
   }
@@ -2484,6 +2517,7 @@
       [
         informationLinks.requirements,
         personInformationLink(),
+        informationLinks.instagram,
         informationLinks.official,
         informationLinks.faq
       ]
@@ -2495,10 +2529,12 @@
     const id=theme.id || "";
     let links=[];
 
-    if(/pay|schedule|conditions|benefits|balance|apply/.test(id)){
+    if(/apply/.test(id)){
+      links=[informationLinks.phone,informationLinks.email,informationLinks.contact];
+    }else if(/pay|schedule|conditions|benefits|balance/.test(id)){
       links=[informationLinks.requirements,informationLinks.faq];
     }else if(/education|career|culture|experience|transition|parenting/.test(id)){
-      links=[personInformationLink(),informationLinks.recruitHome];
+      links=[personInformationLink(),informationLinks.instagram];
     }else if(/about|work|cases|fields|daycare/.test(id)){
       links=[informationLinks.official,personInformationLink()];
     }else{
