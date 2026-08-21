@@ -2503,10 +2503,19 @@
     `;
   }
 
-  function personInformationLink(){
-    return selectedJob === "介護士"
-      ? informationLinks.carePerson
-      : informationLinks.ptPerson;
+  function staffInformationLink(){
+    if(selectedJob === "理学療法士") return informationLinks.ptPerson;
+    if(selectedJob === "介護士") return informationLinks.carePerson;
+    return informationLinks.recruitHome;
+  }
+
+  function uniqueInformationLinks(links){
+    const urls=new Set();
+    return links.filter(link=>{
+      if(!link || urls.has(link.url)) return false;
+      urls.add(link.url);
+      return true;
+    });
   }
 
   function renderThemesInformationLinks(){
@@ -2514,13 +2523,13 @@
     container.innerHTML=informationPanelMarkup(
       "もう少し詳しく知る",
       "外部サイトは新しいタブで開きます。この案内画面はそのまま残ります。",
-      [
+      uniqueInformationLinks([
         informationLinks.requirements,
-        personInformationLink(),
+        staffInformationLink(),
         informationLinks.instagram,
         informationLinks.official,
         informationLinks.faq
-      ]
+      ])
     );
   }
 
@@ -2534,9 +2543,9 @@
     }else if(/pay|schedule|conditions|benefits|balance/.test(id)){
       links=[informationLinks.requirements,informationLinks.faq];
     }else if(/education|career|culture|experience|transition|parenting/.test(id)){
-      links=[personInformationLink(),informationLinks.instagram];
-    }else if(/about|work|cases|fields|daycare/.test(id)){
-      links=[informationLinks.official,personInformationLink()];
+      links=[staffInformationLink(),informationLinks.instagram];
+    }else if(/about|work|cases|fields|daycare|flow|team|service/.test(id)){
+      links=[informationLinks.official,staffInformationLink()];
     }else{
       links=[informationLinks.recruitHome,informationLinks.faq];
     }
@@ -2544,7 +2553,7 @@
     container.innerHTML=informationPanelMarkup(
       "このテーマに関連する情報",
       "より詳しい情報を、のぞみ整形外科の公式サイトで確認できます。",
-      links
+      uniqueInformationLinks(links)
     );
   }
 
