@@ -714,6 +714,95 @@
       background:var(--primary);
     }
 
+    .philosophy-lead{
+      margin:0 0 34px;
+      color:var(--text-dark);
+      font-size:16px;
+      line-height:2;
+    }
+
+    .philosophy-nav{
+      display:grid;
+      gap:8px;
+      margin:0 0 38px;
+    }
+
+    .philosophy-nav a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 15px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      color:var(--text-dark);
+      background:#fff;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .philosophy-nav span{
+      color:var(--primary-deep);
+      font-family:Georgia,serif;
+      font-size:18px;
+    }
+
+    .philosophy-section{
+      margin:0 0 50px;
+      scroll-margin-top:92px;
+    }
+
+    .philosophy-visual{
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0 0 22px;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+
+    .philosophy-kicker{
+      margin:0 0 5px;
+      color:var(--primary-deep);
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.16em;
+    }
+
+    .philosophy-message{
+      margin:22px 0;
+      padding:18px 20px;
+      border-left:4px solid var(--primary);
+      border-radius:0 12px 12px 0;
+      color:var(--text-dark);
+      background:var(--primary-soft);
+      font-size:16px;
+      font-weight:700;
+      line-height:1.9;
+    }
+
+    .philosophy-closing{
+      margin:56px 0 8px;
+      padding:28px 22px;
+      border-radius:18px;
+      color:var(--text-dark);
+      background:linear-gradient(135deg,#f4fbfa 0%,#e5f5f2 100%);
+      text-align:center;
+    }
+
+    .philosophy-closing strong{
+      display:block;
+      margin-bottom:12px;
+      color:var(--primary-deep);
+      font-size:20px;
+      line-height:1.7;
+    }
+
+    .philosophy-closing p{
+      margin:0;
+    }
+
     /* =========================
        CTA + PHILOSOPHY BUTTON
     ========================= */
@@ -895,6 +984,18 @@
 
       .philosophy-link-title{
         font-size:15px;
+      }
+
+      .philosophy-nav{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .philosophy-lead{
+        font-size:17px;
+      }
+
+      .philosophy-message{
+        font-size:17px;
       }
     }
 
@@ -1500,7 +1601,7 @@
       'のぞみ整形外科が<br>目指す医療',
 
     philosophy_intro:
-      'Factだけでは伝わらない、私たちが大切にしている考え方。',
+      '目の前の症状だけでなく、その人のこれからの生活まで考える。私たちが大切にしている医療の姿勢です。',
 
 
     /*
@@ -1525,46 +1626,71 @@
   /*
     ==========================================
     PHILOSOPHY CONTENT
-    現在はUI確認用の仮文章
     ==========================================
   */
 
   const philosophyContent = `
 
-    <p>
-      仕事内容や勤務条件、教育制度などの
-      「Fact」だけでは、
-      私たちがどんな医療を目指しているのかを
-      すべて伝えることはできません。
+    <p class="philosophy-lead">
+      医療機関で患者さんと向き合える時間は、人生の中のほんの一部です。けれど、その時間にどう関わるかは、患者さんがその後どのような生活を送るかにつながっています。のぞみ整形外科は、今日の症状を改善するだけでなく、その人の未来の生活まで見据えて関わることを大切にしています。
     </p>
 
-    <p>
-      ここでは、
-      のぞみ整形外科が患者さんとどのように関わり、
-      地域の中でどんな医療を目指しているのか。
-      私たちが大切にしている考え方を紹介します。
-    </p>
+    <nav class="philosophy-nav" aria-label="このページの内容">
+      <a href="#philosophy-01">01　点ではなく、線で関わる<span>→</span></a>
+      <a href="#philosophy-02">02　身体から、生活、その人へ<span>→</span></a>
+      <a href="#philosophy-03">03　人生の変化に寄り添う<span>→</span></a>
+      <a href="#philosophy-04">04　多職種で一人を支える<span>→</span></a>
+      <a href="#philosophy-05">05　地域で再びつながる<span>→</span></a>
+    </nav>
 
-    <h2>
-      点ではなく、線で関わる
-    </h2>
+    <section id="philosophy-01" class="philosophy-section">
+      <img class="philosophy-visual" src="assets/philosophy/01-continuous-care.png" alt="診察、リハビリ、日常生活、再相談までが一本の線でつながる様子" loading="lazy">
+      <p class="philosophy-kicker">CONTINUOUS CARE</p>
+      <h2>点ではなく、線で関わる</h2>
+      <p class="philosophy-message">一回の診察やリハビリを、患者さんの人生から切り離された「点」にしない。</p>
+      <p>痛みや機能の改善は、大切な出発点です。しかし、治療を受けている時間以外にも、患者さんの生活は続いています。学校、仕事、家事、子育て、趣味、地域での役割。目の前の症状が、その人の日常にどのような影響を与えているのかまで考える必要があります。</p>
+      <p>私たちは、現在の状態だけでなく、これまでの生活と、これから望む生活にも目を向けます。今日の関わりが未来へどうつながるかを考え、必要なときにはもう一度支えられる医療を目指します。</p>
+    </section>
 
-    <p>
-      一回の診察、一回のリハビリ、
-      一回の処置だけを見るのではなく、
-      その人がこれからどのような生活を送りたいのかまで考える。
-    </p>
+    <section id="philosophy-02" class="philosophy-section">
+      <img class="philosophy-visual" src="assets/philosophy/02-body-life-person.png" alt="身体の状態から仕事や家庭などの生活、その人全体へ視点を広げる様子" loading="lazy">
+      <p class="philosophy-kicker">BODY, LIFE, PERSON</p>
+      <h2>身体から、生活、その人へ</h2>
+      <p class="philosophy-message">医学的に考えることと、本人が大切にしていること。その二つを行き来する。</p>
+      <p>医療者には、症状や検査結果、身体機能を専門的に評価する責任があります。一方で、医学的に望ましいことが、そのまま患者さんの望む生活と一致するとは限りません。</p>
+      <p>何に困っているのか。どんな生活に戻りたいのか。仕事や家庭で担っている役割は何か。趣味や大切にしている時間は何か。私たちは対話を通じてそれらを知り、医学的な視点と患者さん自身の価値観を重ねながら、その人に合った目標と方法を一緒に考えます。</p>
+    </section>
 
-    <p>
-      ここには今後、
-      のぞみ整形外科が大切にしている医療観や、
-      患者さんとの関わり方についての
-      Philosophyコンテンツを掲載します。
-    </p>
+    <section id="philosophy-03" class="philosophy-section">
+      <img class="philosophy-visual" src="assets/philosophy/03-life-course.png" alt="子どもから高齢期まで人生の変化に寄り添う医療を表す様子" loading="lazy">
+      <p class="philosophy-kicker">THROUGH LIFE</p>
+      <h2>人生の変化に寄り添う</h2>
+      <p class="philosophy-message">同じ人でも、年代や環境が変われば、必要な支援も変わっていく。</p>
+      <p>成長期のけが、スポーツへの復帰、働く世代の身体の不調、子育てや介護との両立、加齢による変化。患者さんが大切にしたいことや、生活の中で求められる役割は、人生の段階によって変化します。</p>
+      <p>だからこそ、過去にうまくいった方法をそのまま当てはめるのではなく、今の身体と今の暮らしに合う支援を考えます。一人ひとりの変化を理解し、その時々に必要な医療やリハビリへつなぐことを大切にしています。</p>
+    </section>
 
-    <div class="answer-box">
-      現在はPhilosophyページのUI確認用の仮文章です。
-      本文は今後あらためて作成します。
+    <section id="philosophy-04" class="philosophy-section">
+      <img class="philosophy-visual" src="assets/philosophy/04-multidisciplinary-care.png" alt="受付、医師、理学療法士、看護師などが連携して患者を支える様子" loading="lazy">
+      <p class="philosophy-kicker">ONE TEAM</p>
+      <h2>多職種で、一人の患者さんを支える</h2>
+      <p class="philosophy-message">一つの職種、一つの部門だけでは見えないことを、チームで補い合う。</p>
+      <p>患者さんが抱える困りごとは、身体だけで完結しません。診察で見えること、リハビリで気づくこと、受付や看護の場面で聞けること、介護サービスや日常生活の中で分かること。それぞれの職種が異なる場所から患者さんを見ています。</p>
+      <p>医師、看護師、理学療法士、トレーナー、介護士、医療事務などが情報と視点を持ち寄ることで、よりその人に合った支援が可能になります。専門性を発揮しながら、職種の境界を越えて相談し、患者さんの生活という共通の目的に向かうチームを目指します。</p>
+    </section>
+
+    <section id="philosophy-05" class="philosophy-section">
+      <img class="philosophy-visual" src="assets/philosophy/05-community-connection.png" alt="地域の日常とクリニックがつながり、必要なときに再び相談できる様子" loading="lazy">
+      <p class="philosophy-kicker">CONNECTED WITH COMMUNITY</p>
+      <h2>地域の暮らしとつながり、必要なときに再び支える</h2>
+      <p class="philosophy-message">治療が終わっても、その人の人生は続く。必要なときに、またつながれる場所でありたい。</p>
+      <p>症状が改善して通院を終えたあとも、患者さんは地域で生活を続けます。進学、就職、出産、加齢などをきっかけに、身体や暮らしの状況が変わることもあります。</p>
+      <p>のぞみ整形外科は、外来診療やリハビリだけでなく、通所・訪問リハビリや介護サービスとも連携しています。一度の治療で関係を閉じるのではなく、困ったときに思い出してもらい、必要な支援へもう一度つなげられる存在でありたいと考えています。</p>
+    </section>
+
+    <div class="philosophy-closing">
+      <strong>今日の関わりを、未来の生活へ。</strong>
+      <p>患者さんの身体を診て、生活を知り、その人自身と向き合う。この考え方を、私たちは日々の仕事の中で形にしていきます。</p>
     </div>
 
   `;
