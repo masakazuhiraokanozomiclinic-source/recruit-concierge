@@ -1911,6 +1911,14 @@
       label:"理学療法士のスタッフ紹介を見る",
       url:"https://www.nozomi-clinic.jp/recruit/person/84"
     },
+    nursePerson:{
+      label:"看護師のスタッフ紹介を見る",
+      url:"https://www.nozomi-clinic.jp/recruit/person/58"
+    },
+    adminPerson:{
+      label:"医療事務のスタッフ紹介を見る",
+      url:"https://www.nozomi-clinic.jp/recruit/person/83"
+    },
     carePerson:{
       label:"介護士のスタッフ紹介を見る",
       url:"https://www.nozomi-clinic.jp/recruit/person/77"
@@ -2505,6 +2513,8 @@
 
   function staffInformationLink(){
     if(selectedJob === "理学療法士") return informationLinks.ptPerson;
+    if(selectedJob === "看護師") return informationLinks.nursePerson;
+    if(selectedJob === "医療事務") return informationLinks.adminPerson;
     if(selectedJob === "介護士") return informationLinks.carePerson;
     return informationLinks.recruitHome;
   }
@@ -2544,7 +2554,9 @@
       links=[informationLinks.requirements,informationLinks.faq];
     }else if(/education|career|culture|experience|transition|parenting/.test(id)){
       links=[staffInformationLink(),informationLinks.instagram];
-    }else if(/about|work|cases|fields|daycare|flow|team|service/.test(id)){
+    }else if(/work|cases|fields|daycare|flow|day|team|service/.test(id)){
+      links=[staffInformationLink(),informationLinks.official];
+    }else if(/about/.test(id)){
       links=[informationLinks.official,staffInformationLink()];
     }else{
       links=[informationLinks.recruitHome,informationLinks.faq];
