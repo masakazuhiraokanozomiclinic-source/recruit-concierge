@@ -2384,7 +2384,8 @@
       button.setAttribute("aria-label",`${image.alt || "資料画像"}を拡大`);
       const img=document.createElement("img");
       const source=(window.RECRUIT_ASSETS || {})[image.src] || image.src;
-      img.src=new URL(source,document.baseURI).href;
+      const githubSource=source.replace(/^assets\/([^/]+)\//,"$1-");
+      img.src=new URL(githubSource,document.baseURI).href;
       img.alt=image.alt || "";
       img.loading="eager";
       img.decoding="async";
